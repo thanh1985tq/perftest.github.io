@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 8 — Noise & Whitespace</title></head>
+<body>
+<h2>Case 8 — Token giữa noise, xuống dòng & khoảng trắng</h2>
+<p>Mục tiêu: dùng DOTALL/Singleline hoặc class đa dòng để match cross-line.</p>
+
+<pre>
+   /* random settings */
+   cfg = {
+      key:   "not-this",
+      token:
+         "NOISE-START"
+         /* lots of comments
+            and blank lines */
+         "NX-2025
+-10
+-18-ABC
+-999"
+         "NOISE-END"
+   }
+</pre>
+
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>Expected: NX-2025-10-18-ABC-999</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 9 — Base64 trong comment</title></head>
+<body>
+<h2>Case 9 — Token base64 ẩn trong HTML comment</h2>
+<p>Mục tiêu: trích xuất chuỗi base64 rồi decode để lấy token gốc.</p>
+
+<!-- b3JpZzpCQVNFNjQtVE9LRU49QjY0LVRSQU5TTEFURS0xMjM0 -->
+<!-- Hint: base64 của "orig:BASE64-TOKEN=B64-TRANSLATE-1234" -->
+
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>Decoded token: orig:BASE64-TOKEN=B64-TRANSLATE-1234</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>

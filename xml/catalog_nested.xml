@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <category name="Computers">
+    <subcategory name="Laptops">
+      <product id="c-1" rating="4.7"><![CDATA[Ultra 14]]></product>
+    </subcategory>
+    <subcategory name="Desktops">
+      <product id="c-2" rating="4.4">Tower X</product>
+    </subcategory>
+  </category>
+  <category name="Accessories">
+    <subcategory name="Audio">
+      <product id="a-1" rating="4.2">Earbuds S</product>
+    </subcategory>
+    <subcategory name="Input">
+      <product id="a-2" rating="4.1">Mouse Lite</product>
+    </subcategory>
+  </category>
+  <!-- Token ẩn trong comment (XML) -->
+  <!-- SECRET_TOKEN=XML-HIDDEN-55aa77bb -->
+</catalog>

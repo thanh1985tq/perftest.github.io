@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders xmlns="http://example.com/order" xmlns:sec="http://example.com/security">
+  <order id="ORD-10001" status="CREATED" sec:trace="txn-5f3a">
+    <customer>
+      <id>c-001</id>
+      <name><![CDATA[Nguyễn Văn A]]></name>
+    </customer>
+    <items>
+      <item sku="sku-1001" qty="2" price="299.00"/>
+      <item sku="sku-1004" qty="1" price="159.00"/>
+    </items>
+    <sec:antiForgery>
+      <!-- CSRF-like token nằm trong attribute -->
+      <sec:token value="XML-CSRF-7a9d-22b1"/>
+    </sec:antiForgery>
+  </order>
+
+  <order id="ORD-10002" status="PAID" sec:trace="txn-8ab1">
+    <customer>
+      <id>c-002</id>
+      <name><![CDATA[Trần Thị B]]></name>
+    </customer>
+    <items>
+      <item sku="sku-1002" qty="1" price="129.00"/>
+    </items>
+    <sec:antiForgery>
+      <sec:token value="XML-CSRF-9abc-55f2"/>
+    </sec:antiForgery>
+  </order>
+</orders>

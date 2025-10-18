@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 7 — Variable Token Patterns</title></head>
+<body>
+<h2>Case 7 — Token đổi pattern theo phiên bản</h2>
+<p>Mục tiêu: viết Regex đủ “mềm dẻo” để match nhiều kiểu token.</p>
+
+<ul>
+  <li>v1: <span id="t1">TK-12345-ABCDE</span></li>
+  <li>v2: <span id="t2">TOKEN{A1B2C3D4E5}</span></li>
+  <li>v3: <span id="t3">[TKN] SID_2025_10_18_0099</span></li>
+  <li>v4: <span id="t4">TKN-xyz_987-ALPHA.beta</span></li>
+</ul>
+
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden>
+<pre>
+Expect matches (4):
+TK-12345-ABCDE
+TOKEN{A1B2C3D4E5}
+SID_2025_10_18_0099
+TKN-xyz_987-ALPHA.beta
+</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>

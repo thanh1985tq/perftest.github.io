@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 10 — GZIP trong Base64</title></head>
+<body>
+<h2>Case 10 — Blob JSON gzip rồi base64 (trích & giải nén)</h2>
+<p>Mục tiêu: trích chuỗi base64 (thực tế là gzip+base64), giải nén để lấy JSON và token.</p>
+
+<pre id="blob">
+data-encoding="gzip+base64"
+payload="H4sIAAAAAAAC/1WOwQqCMBCE32XiY2kG3V2Q1iG4aCc5mKcJqZk2bEo9f0f3bq2m3mKp3c+5v+fT0y5J0CqW5e6u8Ikw6ZL7QKc3QvWZtUo3z2xO6o4D8b3C0m2c8q0jHq0cJc2WwJ8cJf7cFz1eJZ8q3qQ0Zl9Vqz0g9b1xQh0yqf8GQk6b6E5QAAA=="
+</pre>
+
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>
+Kỳ vọng sau khi giải nén ra JSON (ví dụ):
+{"token":"GZ-SEALED-42","exp":600}
+</pre></div>
+
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>

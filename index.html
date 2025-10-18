@@ -2,93 +2,178 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8"/>
-  <title>JMeter Correlation Lab - Static Responses</title>
+  <title>JMeter Correlation Lab - Static Responses (Full Index)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <style>
-    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.45; margin: 2rem; max-width: 1000px}
+    :root{--b:#111;--muted:#666;--br:#e5e7eb}
+    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.45; margin: 2rem; max-width: 1100px}
     h1{margin-top:0}
     code,kbd,pre{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
-    .grid{display:grid;grid-template-columns: repeat(auto-fill,minmax(320px,1fr)); grid-gap:16px}
-    .card{border:1px solid #ddd;border-radius:12px;padding:16px}
+    .grid{display:grid;grid-template-columns: repeat(auto-fill,minmax(320px,1fr)); gap:16px}
+    .card{border:1px solid var(--br);border-radius:12px;padding:16px}
     .badge{display:inline-block; padding:.15rem .5rem; border:1px solid #999; border-radius:999px; font-size:12px; margin-right:.35rem}
-    .muted{color:#666}
-    a.btn{display:inline-block; padding:.5rem .75rem; border:1px solid #000; border-radius:8px; text-decoration:none}
+    .muted{color:var(--muted)}
+    a.btn{display:inline-block; padding:.5rem .75rem; border:1px solid var(--b); border-radius:8px; text-decoration:none}
+    .section{margin:28px 0}
+    hr{border:none; border-top:1px solid var(--br); margin:28px 0}
+    details summary{cursor:pointer; font-weight:600}
+    .tips{background:#f9fafb;border:1px solid var(--br);border-radius:12px;padding:12px}
   </style>
 </head>
 <body>
-  <h1>JMeter Correlation Lab (Static)</h1>
-  <p class="muted">Bộ bài thực hành xử lý tham số động (Correlation) với nhiều mức độ khó và định dạng response khác nhau. 
-    Phục vụ trích xuất bằng <strong>Regular Expression Extractor</strong> và <strong>JSON Path Extractor</strong>.</p>
+  <h1>JMeter Correlation Lab (Static) — Full Index</h1>
+  <p class="muted">
+    Bộ bài thực hành xử lý tham số động (Correlation) với nhiều mức độ khó: HTML, JSON/API, XML, CSV và “anti-regex”.
+    Dùng cho <strong>Regular Expression Extractor</strong>, <strong>JSON Path / JMESPath</strong>, <strong>XPath 2.0</strong>, và JSR223 (Groovy) khi cần decode.
+  </p>
 
-  <h2>HTML cases (dùng Regex)</h2>
-  <div class="grid">
-    <div class="card">
-      <div><span class="badge">HTML</span><span class="badge">Form</span><span class="badge">CSRF</span></div>
-      <h3>Case 1 — CSRF đơn giản</h3>
-      <p><a class="btn" href="html/case1_csrf_simple.html">/html/case1_csrf_simple.html</a></p>
-    </div>
-    <div class="card">
-      <div><span class="badge">HTML</span><span class="badge">Form</span><span class="badge">Multi-match</span></div>
-      <h3>Case 2 — Nhiều form, chọn token đúng</h3>
-      <p><a class="btn" href="html/case2_multi_form.html">/html/case2_multi_form.html</a></p>
-    </div>
-    <div class="card">
-      <div><span class="badge">HTML</span><span class="badge">Comment</span></div>
-      <h3>Case 3 — Token ẩn trong comment</h3>
-      <p><a class="btn" href="html/case3_token_in_comment.html">/html/case3_token_in_comment.html</a></p>
-    </div>
-    <div class="card">
-      <div><span class="badge">HTML</span><span class="badge">ASP.NET-like</span></div>
-      <h3>Case 4 — __VIEWSTATE &amp; __EVENTVALIDATION</h3>
-      <p><a class="btn" href="html/case4_viewstate.html">/html/case4_viewstate.html</a></p>
-    </div>
-    <div class="card">
-      <div><span class="badge">HTML</span><span class="badge">Links</span></div>
-      <h3>Case 5 — Lấy tất cả productId từ link</h3>
-      <p><a class="btn" href="html/case5_links_ids.html">/html/case5_links_ids.html</a></p>
-    </div>
-    <div class="card">
-      <div><span class="badge">HTML</span><span class="badge">Script</span></div>
-      <h3>Case 6 — Token trong &lt;script&gt;</h3>
-      <p><a class="btn" href="html/case6_script_var.html">/html/case6_script_var.html</a></p>
+  <!-- HTML (Regex) cơ bản -->
+  <div class="section">
+    <h2>HTML cases — cơ bản (Regex)</h2>
+    <div class="grid">
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">Form</span><span class="badge">CSRF</span></div>
+        <h3>Case 1 — CSRF đơn giản</h3>
+        <p><a class="btn" href="html/case1_csrf_simple.html">/html/case1_csrf_simple.html</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">Form</span><span class="badge">Multi-match</span></div>
+        <h3>Case 2 — Nhiều form, chọn token đúng</h3>
+        <p><a class="btn" href="html/case2_multi_form.html">/html/case2_multi_form.html</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">Comment</span></div>
+        <h3>Case 3 — Token ẩn trong comment</h3>
+        <p><a class="btn" href="html/case3_token_in_comment.html">/html/case3_token_in_comment.html</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">ASP.NET-like</span></div>
+        <h3>Case 4 — __VIEWSTATE &amp; __EVENTVALIDATION</h3>
+        <p><a class="btn" href="html/case4_viewstate.html">/html/case4_viewstate.html</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">Links</span></div>
+        <h3>Case 5 — Lấy tất cả productId từ link</h3>
+        <p><a class="btn" href="html/case5_links_ids.html">/html/case5_links_ids.html</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">Script</span></div>
+        <h3>Case 6 — Token trong &lt;script&gt;</h3>
+        <p><a class="btn" href="html/case6_script_var.html">/html/case6_script_var.html</a></p>
+      </div>
     </div>
   </div>
 
-  <h2>API / JSON cases (dùng JSONPath)</h2>
-  <div class="grid">
-    <div class="card">
-      <div><span class="badge">JSON</span><span class="badge">Auth</span></div>
-      <h3>API — Login trả về access_token</h3>
-      <p><a class="btn" href="api/login_success.json">/api/login_success.json</a></p>
+  <!-- HTML Anti-regex nâng cao -->
+  <div class="section">
+    <h2>HTML cases — “anti-regex” nâng cao</h2>
+    <div class="grid">
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">Variable Pattern</span></div>
+        <h3>Case 7 — Token đổi pattern</h3>
+        <p><a class="btn" href="html/case7_variable_token_patterns.html">/html/case7_variable_token_patterns.html</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">Whitespace</span><span class="badge">Noise</span></div>
+        <h3>Case 8 — Noise &amp; xuống dòng</h3>
+        <p><a class="btn" href="html/case8_noise_whitespace.html">/html/case8_noise_whitespace.html</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">Base64</span></div>
+        <h3>Case 9 — Base64 trong comment</h3>
+        <p><a class="btn" href="html/case9_base64_comment.html">/html/case9_base64_comment.html</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">HTML</span><span class="badge">GZIP+Base64</span><span class="badge">Blob</span></div>
+        <h3>Case 10 — JSON gzip &amp; base64</h3>
+        <p><a class="btn" href="html/case10_gzip_base64_blob.html">/html/case10_gzip_base64_blob.html</a></p>
+      </div>
     </div>
-    <div class="card">
-      <div><span class="badge">JSON</span><span class="badge">Array</span></div>
-      <h3>API — Danh sách sản phẩm (mức cơ bản)</h3>
-      <p><a class="btn" href="api/products_list.json">/api/products_list.json</a></p>
+  </div>
+
+  <!-- JSON / API -->
+  <div class="section">
+    <h2>API / JSON cases (JSONPath/JMESPath)</h2>
+    <div class="grid">
+      <div class="card">
+        <div><span class="badge">JSON</span><span class="badge">Auth</span></div>
+        <h3>API — Login trả về access_token</h3>
+        <p><a class="btn" href="api/login_success.json">/api/login_success.json</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">JSON</span><span class="badge">Array</span></div>
+        <h3>API — Danh sách sản phẩm (cơ bản)</h3>
+        <p><a class="btn" href="api/products_list.json">/api/products_list.json</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">JSON</span><span class="badge">Filter</span><span class="badge">Paging</span></div>
+        <h3>API — Phân trang: page 1 &amp; 2</h3>
+        <p>
+          <a class="btn" href="api/products_pagination_page1.json">/api/products_pagination_page1.json</a>
+          <a class="btn" href="api/products_pagination_page2.json">/api/products_pagination_page2.json</a>
+        </p>
+      </div>
+      <div class="card">
+        <div><span class="badge">JSON</span><span class="badge">Nested</span></div>
+        <h3>API — Nested catalog (nâng cao)</h3>
+        <p><a class="btn" href="api/nested_catalog.json">/api/nested_catalog.json</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">JSON</span><span class="badge">Order</span></div>
+        <h3>API — Tạo đơn hàng trả về order_id</h3>
+        <p><a class="btn" href="api/order_create_response.json">/api/order_create_response.json</a></p>
+      </div>
     </div>
-    <div class="card">
-      <div><span class="badge">JSON</span><span class="badge">Filter</span><span class="badge">Paging</span></div>
-      <h3>API — Phân trang: page 1 &amp; 2</h3>
-      <p>
-        <a class="btn" href="api/products_pagination_page1.json">/api/products_pagination_page1.json</a>
-        <a class="btn" href="api/products_pagination_page2.json">/api/products_pagination_page2.json</a>
-      </p>
+  </div>
+
+  <!-- XML -->
+  <div class="section">
+    <h2>XML cases (XPath 2.0 / Regex)</h2>
+    <div class="grid">
+      <div class="card">
+        <div><span class="badge">XML</span><span class="badge">Namespace</span></div>
+        <h3>Orders + CSRF trong attribute</h3>
+        <p><a class="btn" href="xml/orders.xml">/xml/orders.xml</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">XML</span><span class="badge">Auth</span><span class="badge">CDATA</span></div>
+        <h3>Auth response + ALT token (CDATA)</h3>
+        <p><a class="btn" href="xml/auth_response.xml">/xml/auth_response.xml</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">XML</span><span class="badge">Nested</span><span class="badge">Comment</span></div>
+        <h3>Catalog lồng nhau + token trong comment</h3>
+        <p><a class="btn" href="xml/catalog_nested.xml">/xml/catalog_nested.xml</a></p>
+      </div>
     </div>
-    <div class="card">
-      <div><span class="badge">JSON</span><span class="badge">Nested</span></div>
-      <h3>API — Nested catalog (mức nâng cao)</h3>
-      <p><a class="btn" href="api/nested_catalog.json">/api/nested_catalog.json</a></p>
-    </div>
-    <div class="card">
-      <div><span class="badge">JSON</span><span class="badge">Order</span></div>
-      <h3>API — Tạo đơn hàng trả về order_id</h3>
-      <p><a class="btn" href="api/order_create_response.json">/api/order_create_response.json</a></p>
+  </div>
+
+  <!-- CSV -->
+  <div class="section">
+    <h2>CSV cases (CSV Data Set / Regex trên text)</h2>
+    <div class="grid">
+      <div class="card">
+        <div><span class="badge">CSV</span><span class="badge">Comma</span></div>
+        <h3>Users (có dấu phẩy trong tên)</h3>
+        <p><a class="btn" href="csv/users.csv">/csv/users.csv</a></p>
+      </div>
+      <div class="card">
+        <div><span class="badge">CSV</span><span class="badge">Semicolon</span></div>
+        <h3>Inventory (delimiter ;)</h3>
+        <p><a class="btn" href="csv/inventory.csv">/csv/inventory.csv</a></p>
+      </div>
     </div>
   </div>
 
   <hr/>
-  <p><strong>Gợi ý dùng trong JMeter:</strong> chạy một web server tĩnh trỏ vào thư mục này, ví dụ: 
-  <code>python -m http.server 8080 -d jmeter-correlation-lab</code>. 
-  Sau đó cấu hình HTTP Request Sampler tới các đường dẫn trên để thực hành trích xuất và dùng lại biến.</p>
+  <details>
+    <summary>Gợi ý nhanh cho Extractor (mở ra xem)</summary>
+    <ul>
+      <li><strong>Regex (HTML):</strong> <code>name="_csrf" value="(.+?)"</code>, <code>window.__SESSION_ID__\s*=\s*"(.+?)"</code>, <code>href="/product/view\?id=(\d+)"</code> (Match No = -1).</li>
+      <li><strong>JSONPath:</strong> <code>$.data.access_token</code>, <code>$.products[*].name</code>, <code>$.items[*].sku</code>, <code>$.order.order_id</code>.</li>
+      <li><strong>XPath 2.0 (XML):</strong> <code>//sec:token/@value</code>, <code>//auth/token/text()</code>, comment token: Regex <code>SECRET_TOKEN=([A-Z0-9\-]+)</code>.</li>
+      <li><strong>Decode:</strong> Base64 trong comment → JSR223(Groovy) <code>Base64</code>; GZIP+Base64 → <code>GZIPInputStream</code>.</li>
+    </ul>
+  </details>
 </body>
 </html>
