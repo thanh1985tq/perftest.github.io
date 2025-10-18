@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 4 — VIEWSTATE</title></head>
+<body>
+<h2>Case 4 — __VIEWSTATE &amp; __EVENTVALIDATION (giống ASP.NET)</h2>
+<p>Mục tiêu: trích xuất cả hai trường ẩn.</p>
+<form action="/aspx/page" method="post">
+  <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTIyMzM0NDVkoeYH0bq1x7U4hF7vJpY9JmQ3m4M2U7wQ==">
+  <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAUFt7n9R1Xo2q9P1yqGJmJ9oDq6bYFf9Rz3Z2vWQqM=">
+</form>
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>VIEWSTATE=/wEPDwUKMTIyMzM0NDVkoeYH0bq1x7U4hF7vJpY9JmQ3m4M2U7wQ==
+EVENTVALIDATION=/wEdAAUFt7n9R1Xo2q9P1yqGJmJ9oDq6bYFf9Rz3Z2vWQqM=</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>

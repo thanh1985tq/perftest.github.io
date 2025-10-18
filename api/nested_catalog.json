@@ -1,0 +1,20 @@
+{
+  "catalog": {
+    "categories": [
+      {
+        "name": "Computers",
+        "children": [
+          { "name": "Laptops", "products": [ { "id": "c-1", "name": "Ultra 14", "meta": { "rating": 4.7 } } ] },
+          { "name": "Desktops", "products": [ { "id": "c-2", "name": "Tower X", "meta": { "rating": 4.4 } } ] }
+        ]
+      },
+      {
+        "name": "Accessories",
+        "children": [
+          { "name": "Audio", "products": [ { "id": "a-1", "name": "Earbuds S", "meta": { "rating": 4.2 } } ] },
+          { "name": "Input", "products": [ { "id": "a-2", "name": "Mouse Lite", "meta": { "rating": 4.1 } } ] }
+        ]
+      }
+    ]
+  }
+}

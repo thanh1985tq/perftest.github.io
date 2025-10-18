@@ -1,0 +1,8 @@
+{
+  "total": 3,
+  "products": [
+    { "id": "prod_111", "name": "Laptop Pro", "price": 1500, "stock": 12 },
+    { "id": "prod_222", "name": "Wireless Mouse", "price": 50, "stock": 200 },
+    { "id": "prod_333", "name": "USB-C Hub", "price": 79, "stock": 35 }
+  ]
+}

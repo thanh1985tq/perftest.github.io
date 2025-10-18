@@ -1,0 +1,9 @@
+{
+  "page": 1,
+  "page_size": 2,
+  "next": "/api/products_pagination_page2.json",
+  "items": [
+    { "sku": "sku-1001", "name": "Monitor 27\"", "price": 299, "tags": ["display", "office"] },
+    { "sku": "sku-1002", "name": "Keyboard Mech", "price": 129, "tags": ["input", "gaming"] }
+  ]
+}

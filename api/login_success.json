@@ -1,0 +1,10 @@
+{
+  "status": "success",
+  "message": "Login successful",
+  "data": {
+    "user_id": 12345,
+    "access_token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ACCESS.123",
+    "refresh_token": "REFRESH.abc.def",
+    "expires_in": 3600
+  }
+}

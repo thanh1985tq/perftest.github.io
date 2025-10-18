@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 3 — Token trong comment</title></head>
+<body>
+<h2>Case 3 — Token ẩn trong HTML comment</h2>
+<p>Mục tiêu: trích xuất chuỗi sau marker <code>TOKEN=</code> trong comment.</p>
+<!-- build:secret; do not expose TOKEN=COMMENT-9f8e7d6c5b4a -->
+<div>Trang public (không có token ở đây)</div>
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>Expected: COMMENT-9f8e7d6c5b4a</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>

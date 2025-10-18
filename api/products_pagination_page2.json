@@ -1,0 +1,9 @@
+{
+  "page": 2,
+  "page_size": 2,
+  "prev": "/api/products_pagination_page1.json",
+  "items": [
+    { "sku": "sku-1003", "name": "Headset Pro", "price": 199, "tags": ["audio", "gaming"] },
+    { "sku": "sku-1004", "name": "Webcam 4K", "price": 159, "tags": ["camera", "meeting"] }
+  ]
+}

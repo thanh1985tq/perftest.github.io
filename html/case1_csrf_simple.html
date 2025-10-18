@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 1 — CSRF đơn giản</title></head>
+<body>
+<h2>Case 1 — CSRF đơn giản</h2>
+<p>Mục tiêu: dùng Regex để trích xuất giá trị của input <code>_csrf</code>.</p>
+<form action="/login" method="post">
+  <input type="hidden" name="_csrf" value="a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8">
+  <input type="text" name="username" value="student">
+  <input type="password" name="password" value="secret">
+</form>
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>Expected field to reuse: _csrf = a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>

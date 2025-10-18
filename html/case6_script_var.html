@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 6 — Script var</title></head>
+<body>
+<h2>Case 6 — Token trong &lt;script&gt; (giữa noise)</h2>
+<p>Mục tiêu: trích xuất giá trị của biến <code>window.__SESSION_ID__</code>.</p>
+<script>
+  // some random script...
+  const config = { apiBase: "/api", version: "1.0.0" };
+  window.__SESSION_ID__ = "SID-2024-XYZ-abc_789";
+  // more noise...
+</script>
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>SESSION_ID = SID-2024-XYZ-abc_789</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>
+{\rtf1}

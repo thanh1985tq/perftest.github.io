@@ -1,0 +1,11 @@
+{
+  "success": true,
+  "order": {
+    "order_id": "ORD-2025-10-18-00042",
+    "status": "CREATED",
+    "payment": { "method": "COD", "amount": 1799, "currency": "USD" },
+    "links": [
+      { "rel": "self", "href": "/api/orders/ORD-2025-10-18-00042" }
+    ]
+  }
+}

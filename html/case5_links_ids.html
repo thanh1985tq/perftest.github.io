@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 5 — Links IDs</title></head>
+<body>
+<h2>Case 5 — Lấy tất cả productId từ link</h2>
+<p>Mục tiêu: dùng Regex matchNo = -1 để lấy <code>id</code> ở mọi link có dạng <code>/product/view?id=xxx</code>.</p>
+<ul>
+  <li><a href="/product/view?id=101">Sản phẩm A</a></li>
+  <li><a href="/product/view?id=102">Sản phẩm B</a></li>
+  <li><a href="/product/view?id=103">Sản phẩm C</a></li>
+</ul>
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>IDs = [101, 102, 103]</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><title>Case 2 — Multi form</title></head>
+<body>
+<h2>Case 2 — Nhiều form, chọn token đúng theo action="/checkout"</h2>
+<p>Mục tiêu: chỉ lấy token từ form có action <code>/checkout</code>.</p>
+
+<form action="/profile" method="post">
+  <input type="hidden" name="_csrf" value="IGNORE-ME-1111">
+</form>
+
+<form action="/checkout" method="post">
+  <input type="hidden" name="_csrf" value="CHECKOUT-5555-VALID">
+</form>
+
+<form action="/feedback" method="post">
+  <input type="hidden" name="_csrf" value="IGNORE-ME-2222">
+</form>
+
+<button onclick="toggle('res')">Show kết quả</button>
+<div id="res" hidden><pre>Expected: token = CHECKOUT-5555-VALID</pre></div>
+<script>
+function toggle(id){ const el = document.getElementById(id); el.hidden = !el.hidden; }
+</script>
+</body></html>
