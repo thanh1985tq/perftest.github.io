@@ -1,0 +1,3109 @@
+
+<!DOCTYPE html>
+
+<html>
+
+
+<head><meta charset="UTF-8" /><title>
+	Họp trực tuyến
+</title><link rel='icon' href='/style/thietke/frontend/images/logo.png?ver=1' type='image/x-icon' /><link rel="stylesheet" type="text/css" href="/style/thietke/frontend/assets/ap8/css/style.css" /><link rel="stylesheet" type="text/css" href="/style/thietke/frontend/assets/bootstrap-4.3.1/css/bootstrap.min.css" /><link rel="stylesheet" href="/style/thietke/frontend/assets/font-awesome/css/font-awesome.min.css" /><link rel="stylesheet" type="text/css" href="/style/thietke/frontend/assets/material/material-icons.css" /><link rel="stylesheet" type="text/css" href="/style/thietke/frontend/assets/jstree/themes/default/style.min.css" /><link rel="stylesheet" type="text/css" href="/style/thietke/frontend/assets/select2/css/select2.min.css" /><link rel="stylesheet" type="text/css" href="/style/thietke/frontend/css/style.css?ver=17" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    
+    <script src="/style/thietke/frontend/assets/jquery/jquery.3.4.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/style/thietke/frontend/assets/animate/animate.css" /><link rel="stylesheet" type="text/css" href="/style/thietke/frontend/assets/metisMenu/metisMenu.min.css" />
+    <script type="text/javascript" src="/style/thietke/frontend/assets/metisMenu/metisMenu.min.js"></script>
+    <script src="/style/thietke/frontend/assets/jstree/jstree.min.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="/style/thietke/frontend/assets/bootstrap-4.3.1/js/popper.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/style/thietke/frontend/assets/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="/style/custom/encryption/aes.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/style/custom/js/RoutingUtil.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style/thietke/frontend/assets/rangeslider/rangeslider.min.css" />
+    <script src="/style/thietke/frontend/assets/rangeslider/rangeslider.min.js"></script>
+
+            
+    <script src="/style/custom/js/Notification/notify.js"></script>
+
+    <!-- thu vien ma hoa -->
+    <script src="/style/custom/js/encryption/crypto-js.min.js"></script>
+    <script src="/style/custom/js/encryption/hmac-sha256.min.js"></script>
+    <script src="/style/custom/js/encryption/enc-base64.min.js"></script>
+</head>
+
+<script>
+    var head = document.getElementsByTagName('head')[0];
+
+    var cssContent = ``;
+    var jsContent = ``;
+    if (cssContent != '') {
+        style = document.createElement('style');
+        style.type = 'text/css';
+        if (style.styleSheet) {
+            // This is required for IE8 and below.
+            style.styleSheet.cssText = cssContent;
+        } else {
+            style.appendChild(document.createTextNode(cssContent));
+        }
+        head.appendChild(style);
+    }
+    if (jsContent != '') {
+        script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.appendChild(document.createTextNode(jsContent));
+        head.appendChild(script);
+    }
+</script>
+
+<body>
+    <form method="post" action="./PhienHop_SuaLayYKien.aspx?IDLichHop=63677&amp;ID=17985" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="ostSft3V+tObL41aogCoK0ZcbyofTDdA+Q5Zs1XhFYde5RopbC/mOwbzbVESe9U3rFCzciGU+xIoFu47rCw8WuNHRvRsgrcg7HZC7jheBHkn82E68SJ3WNmn9/H5bc509HwV3fyQRn9T5HZLcdtYRtT0B6hqjMlFnKRpDhyT6SPvNGTCgQ1wdlSf/vrY7x81psYV4nvTnGc6NaZ2k8KggMlpiNaNu+QmeeBRIzXE8CIMm4VVqmENTWATnc8KNi/CB/jb/k0Tp031ZKMIHCmElvv3gU1l7gtR6fD45vVriVOIay0oY2wT84hoDE1C4/tyTwp0lCr+YMg4zptrfPkNY3ETfXDLaHfMHsGm7jK/moncY0u6Ur8ZZCxQp87DbjueRbxut4kFIR0JAW7QFj7+MDcDLX0bGwLUQKwlZqmjq1bMADeOLASSCSlNmyWalo1oGpTLhWuzqIFfcOBARMzWpjDEA4Cp5OA+7kd+QBsIzQW7KeOKfYte+xIpzPCttBlr0bBs9uIlQ+D16Z66wnwKSNoMpDwi+b+etT/oc5PihUMpW3eYvPjZ5I53xbi61kEchL4O1RQ5/kiFoqY6Rh+n0+sABqeTN1FAS57xv4ubpMEdYrma4XSTXJIFuAGS1PpTJObvzhpMXfAY8EegVgjc54XsLMhxi2SJPoHe0fGRew/hs3KJ6NLmcNpSNoM55iI8WaBOUrm8hYaqnmCOUz+rkav3u+P/mtrhaNpH+WfMD1QPa5qck3gmAz3IdjfkNEFAZCv5SglIOzUYbbBnua5X7WCGrsgKjYw0p6Lo3PJFDvVUZAk7HGmx4cuIKBVDPc6S0IsW8ZJEw83vKPAuM+cpMTGqilLjYKgsJ7xP410MAbSQjUDy/1MFKlwY3UmV06rYNXYIWguqaG8vqrX/jEfpycIMT95y7fSQdnZJxQMzJMD/WByCrrGPl/p0KT/5YvJPFvoj8KewksJv84JuuTKkYgOWeEiKQvzus1AQi64K4RZeMLeLiurHh5raGTNXGLARf1oE+x+dJQyMOm/qqifcprVpm7TTWB1LTRA9nPIwN+BQBEJF3JnaIaKSnqfZVHhKdC9l2rrQiUs+rbB5VphSJ+gZ3z3CFeMwdRQz0TSVacGJlaWvBdbec5w9NiFCxHp5rbNVbVXn/0RePsYGvfWQYEMVqpHHaxesWb1N0+orUSOPNwVC64q+RzHP7v5nu+prIPxr6WpsCSKsP/t+f7mcmsPp/mj/8gVZh4zmk/5QSogsGUqxvDgEpxdFxlBoM10YmTBo7TVcDk9T/h/G8MQ2gxcn6xbS2aCPGlHv2SHN7ZEZIRrT1M6m+xJHM8Zt57b4yiGcfweM1u9/aq5d7iJpK2BzeK01r6+GdPf8FP+Tq8PlrI9iIklgWBclLxTCUKJRnnpwOg0uKur9Snu06qGDDjuC/3GsnucmU+7JpQmRAWqT9aAq7Q10YFlwH/csO650cg7l+A5L9HM2mtY6hjMN+MPW7cOp7uOMgbjblFIlC33ZO/6JU9/8lm3BnnyPvgUkwPzdEvvkmxHIIqAnqX9wSD/ajqj4bzmHPctUVK+5HmcKvpTp7m1eU8Wd3O5KYvKK0Wei3bnmhoamLsAUZJFSOzDDZt9RkDzi0W77lAmgaSUJzk5DBIJa1NgQzIBOjewkTGkJq1m1ljQvKzGbZTpt1GLJb491p9FpTzFuxQNBa9IzZ1pckmEEE9R+mzBQIJW47or7lL9F6xrlFI2SdxJ+5csJcKPBT9k3WrR0nfOjxt6cC0KSgWhJkCQjvSR+lXcjjC3l/Yzk8GoeAM4viXQAfHPLDEuSYvh/mQLfhHTbDS4KotUdoL4mAM0zIEV/XJOwNk7wLvEoMX2EttPULpzx+0Ah/1gV9IRqA5wM0SsCCrO2cHx/Pus34GXRDBuU7qbBc9Esspo+w8TnxFCwxDS02FK/qh1PVBJJ1c8/DMmoIBiCGQXHxE9lFqxS3HZm/eIs3W00CV0vKggUzNErUCfZoICTreylN8OhzL/8wNLre+lKOwtiiWlz+m4uc3JptDnaBGJEICpU8M3wvyem8IxdNudDDlsxdIs7q9rv+3OU/6QdqMknCJZ4+XaS2Jmd79q3UARu+str92W95Rk4lX4AlNICho8T4Lah98GRICYpZnwKSG2SwXX8DGck8vcmL3k55/QGjIqiDksRyujnmrpvU0DbBR47rEx2TreS/RrKq8nkPOwOwbHB2J31Fl76dskJYoiWOe8tEhf81iLqsT4gXVVN3eD5nA4KEEdKj1obFoo7XnbBNAe2V6L8/nn2BnJFRxRndB8DJ95gRYehtAMBCMW1IZfR1XZsmmXwpQ8mQvlnkEhEtVEY5F/goj5X+Kd5e1hzNo6mZr/GLqzQerBoPviZehWRhuP8EIOjc1LtFxINmniqzm6eOibBhSuftzcWSvGiuA8bwdvjnmvf5klhQXFXDhr6uiYUwEEorB1vfItZBciQh74XN9vNOW+zN8ytSlJ9ePGLB+EL1J1WXRf3Z9ECgRHQsUDAfcOFusVgmjv4Ke3Zvm4cbXgG837ardedwyXxKuCnQhtsZ8n0WEvCvbETY9+/hj3Zlc4GTHKv1JLN9T6iPSIx1NtO5PgeJhSIrMwgwNfYZ2QYDRXBjTYIIPcogzt5XvWppw/e+7LogMeTpDS9ExPO+TfvwfSJ50XT" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="13BFC7C6" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="DfqGkaG5xb7kpxeLk6vNCe10Fqhuf0ahiAsgNgL1CBI9nBR0xsZXoEcA7mD/5GpfW+NFL8gVhfTy9aveEAMOHeYI9u5PSq6FO51NyhEYD5oArEPmgqt2IAp/yZpqnBILsVVPjH7o4BZ6hcUFgtO7Bpz8nXOc0PIOts7VbFvZ0d/vv4Ktfa4Mfzk2y1NGffgpbgM0M3BMH0tg7Fh3VwtpRemJDC9hkWiqjPsxIczFUSVPxtzncg+ctXeogDsWNFrSOEG+nW9G4zaTzvecQmasEc7Lu4HEOq8+OsStzN+6/U/xCYrvbpqxCObb/coE9u5SIChEK+hZAzkuzSjSXjZHGtfS3R3xOP1OI7HKVmbneaXee/mrpTcxcRFlVBA9G1bnHSmIAc4JTzXy6NDyQl30VNYzb/8MrH2xjQylSJw/6+uA/zA0/jaMWm/p5TpK7vjiz7qaIOkYcHzBftLT+kCae0B4aqaVE5tA0jv0LxYMRCJx6mgekYqNrH7OGGIeG5qUBUVrsuvTBHwWyKF3sUX5KJFLiUIZkCfJL7ScQf1MSVg=" />
+</div>
+        <div id="overlay" class="" ></div>
+        
+
+<script src="/style/custom/js/realtime/PhienHopJsUtil.js" type="text/javascript" charset="utf-8"></script>
+<!-- script util cho dialog chung-->
+<script>
+    var templatePopupConfirm =
+        `
+<div id="popup-dkpb-confirm" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width:600px;width:100%;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><b>Thông báo</b></h4>
+        </div>
+        <div class="modal-body">
+            <div class="profile-info-row" style="max-width:300px;">
+                <div style="font-weight:bold">contentHolder</div>
+
+            </div>                              
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" onclick="functionHolder">Đồng ý</button>
+            <button class="btn btn-default" onclick="$('#popup-dkpb-confirm').modal('hide')">Thoát</button>
+        </div>
+    </div>
+    </div>
+</div>
+`;
+
+    var templatePopupThongBao =
+        `
+<div id="popup-dkpb-thongbao" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width:600px;width:100%;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><b>Thông báo</b></h4>
+        </div>
+        <div class="modal-body">
+                <div class="profile-info-row" style="max-width:600px;  text-align: left;">
+                <div >contentHolder</div>
+            </div>                              
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" onclick="$('#popup-dkpb-thongbao').modal('hide')">Thoát</button>
+        </div>
+    </div>
+    </div>
+</div>
+`;
+
+    var templatePopupVoteSetup =
+        `<div id="popup-dkpb-VoteSetup" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width:600px;width:100%;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><b>Hỗ trợ</b></h4>
+        </div>
+        <div class="modal-body">
+            <div class="profile-info-row" >
+                <div class="key">contentHolder</div>
+
+            </div>        
+               <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="profile-info-row">
+                    <div class="key">Thời điểm phát hành: <span class="red">*</span></div>
+                    <div class="value">
+                        <input name="ctl00$ctl00$header$txtThoiGianBatDauLayYKien" type="text" id="ctl00_ctl00_header_txtThoiGianBatDauLayYKien" class="validate[required] datetimepicker form-control" placeholder="dd/mm/yyyy hh:mm" onchange="chonNgay()" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="profile-info-row">
+                    <div class="key">Thời điểm hết hạn: <span class="red">*</span></div>
+                    <div class="value">
+                        <input name="ctl00$ctl00$header$txtThoiGianKetThucLayYKien" type="text" id="ctl00_ctl00_header_txtThoiGianKetThucLayYKien" class="datetimepicker form-control" placeholder="dd/mm/yyyy hh:mm" onchange="chonNgay()" />
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" onclick="functionHolder">Đồng ý</button>
+            <button class="btn btn-default" onclick="$('#popup-dkpb-VoteSetup').modal('hide')">Thoát</button>
+        </div>
+    </div>
+    </div>
+</div>
+`;
+    //nếu bấm xác nhận sẽ chạy hàm nameFunction tham số param
+    //params dạng ",1,;,2," 
+    function openDialogXacNhan(nameFunction, params, content) {
+        $("#popup-dkpb-confirm").remove();
+        var strPopup_Confirm = templatePopupConfirm;
+        strPopup_Confirm = strPopup_Confirm.replace(/contentHolder/g, content);
+        //params dạng ",1,;,2," -> khi convert sẽ thành '1','2'
+        strPopup_Confirm = strPopup_Confirm.replace(/functionHolder/g, nameFunction + "(" + params.replace(/,/g, "'").replace(/;/g, ",") + ")");
+        $('body').append(strPopup_Confirm);
+        var temp = $("#popup-dkpb-confirm");
+        //openModal("popup-dkpb-confirm");
+        $("#popup-dkpb-confirm").modal("show");
+    }
+
+
+    function openDialogVoteSetup() {
+        $("#popup-dkpb-VoteSetup").remove();
+        var strPopup_VoteSetup = templatePopupVoteSetup;
+        strPopup_VoteSetup = strPopup_VoteSetup.replace(/contentHolder/g, '');
+        //params dạng ",1,;,2," -> khi convert sẽ thành '1','2'
+        strPopup_VoteSetup = strPopup_VoteSetup.replace(/functionHolder/g, 'yeuCauHoTro()');
+        $('body').append(strPopup_VoteSetup);
+        var temp = $("#popup-dkpb-VoteSetup");
+        //openModal("popup-dkpb-confirm");
+
+        $("#popup-dkpb-VoteSetup").modal("show");
+    }
+
+    //chỉ cần cung cấp nội dung
+    function openDialogThongBao(content) {
+        $("#popup-dkpb-thongbao").remove();
+        var strPopup_ThongBao = templatePopupThongBao;
+        strPopup_ThongBao = strPopup_ThongBao.replace(/contentHolder/g, content);
+        $('body').append(strPopup_ThongBao);
+        $("#popup-dkpb-thongbao").modal("show");
+    }
+    function openDialogFinishSupport(contentSupportQuestion, contentSupportAnswer) {
+        $("#popup-dkpb-FinishSupport").remove();
+        var strPopup_FinishSupport = templatePopupFinishSupport;
+        strPopup_FinishSupport = strPopup_FinishSupport.replace(/contentSupportQuestionHolder/g, contentSupportQuestion);
+        strPopup_FinishSupport = strPopup_FinishSupport.replace(/contentSupportAnswerHolder/g, contentSupportAnswer);
+        $('body').append(strPopup_FinishSupport);
+        $("#popup-dkpb-FinishSupport").modal("show");
+    }
+
+</script>
+<!-- -->
+
+<script>
+    $(document).ready(function () {
+       
+        var isQuanTriDonVi = 'False';
+        if (isQuanTriDonVi === 'True') $("#liCauHinhHeThong").css("display", "");
+
+        initPhienHopJsUtil();
+
+        $("#lichGanNhat").click(function () {
+            if ($(this).attr('href') == '#') openDialogThongBao('Không tìm thấy lịch gần đây!');
+        });
+        
+        
+    });
+</script>
+
+<!-- Websocket trang frontend -->
+<script src="/style/custom/js/WebSocket.js" type="text/javascript" charset="utf-8"></script>
+<script src="/style/custom/js/realtime/NotificationJsUtil.js" type="text/javascript" charset="utf-8"></script>
+<script src="/style/custom/js/realtime/BieuQuyetJsUtil.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    //var websocketURI = 'wss://eoffice-tapdoan.TESTsoftware.vn/QLVB_WebSocket/echo/';
+    //var host = location.host.replace('http', '');
+    //var websocketURI = 'ws:'+host+'/MSWSChat/MSWSChatHandler.ashx?id=';
+    var websocketURI = 'wss://realtimedv.ecabinet.vn/MSWSChat/MSWSChatHandler.ashx?id=';
+
+
+    //var websocketURI = 'ws://localhost:2622/MSWSChatHandler.ashx?';
+    // ws://localhost:2622/MSWSChatHandler.ashx?   --vinhltlink call webservice
+    var idCurrentNhanVien = '107471';
+    var idCurrentPhienHop = 0;
+
+    initSocket(websocketURI, idCurrentNhanVien);
+
+    function receiveEvent(jsonData) {
+      
+        console.log("jsonData: \n" + jsonData + "\n");
+        var data;
+        if (jsonData != null) {
+            try {
+                data = JSON.parse(jsonData);
+
+                //ecabinet-2123-nqanh add
+                if (typeof DangKyPhatBieuJsUtil !== 'undefined') {
+                    if (typeof data.idNguoiGui !== 'undefined' && typeof data.idPhienHop_PhatBieu !== 'undefined' && data.idNguoiGui == idCurrentNhanVien) {
+                        DangKyPhatBieuJsUtil.IDCurrentPhienHop_PhatBieu = data.idPhienHop_PhatBieu;
+                    }
+
+                    var eventHandled = DangKyPhatBieuJsUtil.OnEventReceiveData(data);
+                    if (eventHandled) {
+                        return;
+                    }
+                }
+                //end.nqanh add
+                // huy add
+                if (OnEventReceiveNotify(data)) return;
+                if (OnEventReceiveBieuQuyet(data)) return;
+                // end huy add
+
+                if (typeof ProcessReceiveThaoTacNoiDungHop !== 'undefined' && $.isFunction(ProcessReceiveThaoTacNoiDungHop)) {
+                    var eventHandled = ProcessReceiveThaoTacNoiDungHop(data);
+                    if (eventHandled) {
+                        return;
+                    }
+                }
+
+                if (typeof data.idNguoiGui !== 'undefined' && typeof data.idPhienHop_PhatBieu !== 'undefined' && data.idNguoiGui == idCurrentNhanVien) {
+                    idCurrentPhienHop_PhatBieu = data.idPhienHop_PhatBieu;
+                }
+
+                if (data.idPhienHop === idCurrentPhienHop) {
+                    if (data.loai === "dangKyPhatBieu") {
+                        processEventDangKyPhatBieu(data);
+                    }
+                    else if (data.loai === "daPhatBieu") {
+                        processEventDaPhatBieu(data);
+                    }
+
+                    else if (data.loai === "diemDanh") {
+                        processEventDiemDanh(data);
+                    }
+                    //end.ltvinh add
+                    else if (data.loai === "yeuCauHoTro") {
+                        processEventYeuCauHoTro(data);
+                    }
+                    else if (data.loai === "daHoTro") {
+                        processEventDaHoTro(data);
+                    }
+                    else if (data.loai === "daHoTroXong") {
+                        processEventDaHoTroXong(data);
+                    }
+                    else if (data.loai === "huyYeuCauHoTro") {
+                        processEventHuyYeuCauHoTro(data);
+                    }
+                }
+                else {
+                    if (data.loai === "yeuCauHoTro") {
+                        processEventYeuCauHoTro(data);
+                    }
+                    else if (data.loai === "daHoTro") {
+                        processEventDaHoTro(data);
+                    }
+                    else if (data.loai === "daHoTroXong") {
+                        processEventDaHoTroXong(data);
+                    }
+                    else if (data.loai === "huyYeuCauHoTro") {
+                        processEventHuyYeuCauHoTro(data);
+                    }
+                    else if (data.loai === "login") {
+                        processEventLogout(data);
+                    }
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
+    function processEventLogout(data) {
+        var myCookie = getCookie("AuthToken");
+        if (data.cooKie != myCookie) {
+            alert("Bạn đã bị thoát do đăng nhập thiết bị khác");
+            window.location = "/Pages/DangXuat.aspx";
+
+        }
+        
+    }
+    function getCookie(name) {
+        // Lấy toàn bộ cookie từ document
+        let cookieArr = document.cookie.split(";");
+
+        // Lặp qua từng cookie để tìm cookie có tên mong muốn
+        for (let i = 0; i < cookieArr.length; i++) {
+            let cookiePair = cookieArr[i].split("=");
+
+            // Loại bỏ khoảng trắng trước tên cookie và so sánh với tên mong muốn
+            if (name === cookiePair[0].trim()) {
+                // Trả về giá trị của cookie đã tìm thấy
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+
+        // Nếu không tìm thấy cookie, trả về null
+        return null;
+    }
+    // xử lý notify
+    function setAllNotify() {
+        if ($("li.notify .set-notify").length > 0) {
+            $(".set-notify").each(function () {
+                if (!$(this).is(":disabled")) {
+                    if ($(this).is(":checked")) $(this).prop('checked', false);
+                    else $(this).prop('checked', true);
+                }
+            });
+        }
+        event.stopPropagation();
+    }
+
+    function xemThongBao(itemID) {
+        if ($('#notify-' + itemID + ' .notify-content:eq(0)').is(':hidden')) {
+            $('#notify-' + itemID + ' .notify-content:eq(0)').show();
+            if (!$('#check-' + itemID).is(':checked')) {
+                $('#check-' + itemID).prop('checked', true);
+                $("#check-" + itemID).prop('disabled', true);
+                $('#notify-' + itemID).addClass('read');
+                xacNhanDoc(itemID);
+            }
+        }
+        else {
+            $('#notify-' + itemID + ' .notify-content:eq(0)').hide();
+        }
+        event.stopPropagation();
+    }
+
+    function xacNhanDoc(itemID) {
+        if (itemID == '0') {
+            var idsNotify = "";
+            if ($("li.notify .set-notify").length > 0) {
+                $(".set-notify").each(function () {
+                    if (!$(this).is(":disabled")) {
+                        if ($(this).is(":checked")) idsNotify += $(this).attr("id").split("-")[1] + ",";
+                    }
+                });
+            }
+
+            if (idsNotify != "") {
+                $("#ctl00_ctl00_header_hdfIDsNotify").val(idsNotify.substr(0, idsNotify.length - 1));
+                $("#ctl00_ctl00_header_btnClearNotify").click();
+            }
+            else {
+                alert("Chưa chọn thông báo cần đánh dấu!");
+            }
+        }
+        else {
+            setNotifyIsRead(itemID, idCurrentNhanVien);
+        }
+    }
+
+    function loadNotify() {
+        var pageId = parseInt($("#notify_pagenum").val()) + 1;
+        var htmlNotify = loadAjaxNotify(pageId);
+        if (htmlNotify != "") {
+            $("#notify_pagenum").val(pageId);
+            $('ul.dropdown-menu li:last-child').remove();
+            $("ul.dropdown-menu").append(htmlNotify);
+        }
+        event.stopPropagation();
+    }
+    // end xử lý notify
+
+  
+
+    function switchTaiKhoan(idTaiKhoanDuocUyQuyen) {
+        //$("input[id*='hdfIDTaiKhoanDuocUyQuyen']").val(idTaiKhoanDuocUyQuyen);
+        //$("input[id*='btnChuyenTaiKhoan']").click();
+        $("#ctl00_ctl00_header_hdfIDTaiKhoanDuocUyQuyen").val(idTaiKhoanDuocUyQuyen);
+
+        $("#ctl00_ctl00_header_btnChuyenTaiKhoan").click();
+    }
+
+</script>
+<!-- end websocket -->
+
+<style>
+    .header .logo {
+        max-width: 650px;
+    }
+
+        .header .logo .img {
+            width: 45px !important;
+        }
+
+        .header .logo img {
+            height: auto !important;
+        }
+
+    @media (max-width: 991px) {
+        .frontend-nameuser {
+            display: none;
+        }
+    }
+
+    ul.box-user li.notify ul.dropdown-menu {
+        width: 407px;
+        top: 18px !important;
+        right: -200px !important;
+    }
+
+        ul.box-user li.notify ul.dropdown-menu li div.title {
+            width: 310px;
+            margin-bottom: 2px;
+            white-space: normal;
+        }
+
+    /*.number {
+        background: #e61f53;
+        border-radius: 50%;
+        top: 10px;
+        left: 20px;
+        text-align: center;
+        color: #fff;
+        position: absolute;
+        font-size: 10px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+    }*/
+
+    .dropdown-lichcanhan li {
+        padding: 2px 5px !important;
+    }
+</style>
+
+<!-- style notify -->
+<style>
+    li.notify li.head {
+        font-weight: normal !important;
+    }
+
+    li.notify ul li:hover {
+        background: #f6f7f8;
+    }
+
+    li.notify .set-notify {
+        margin: 16px 8px;
+        float: left;
+    }
+
+    li.notify .user {
+        padding-left: 40px !important;
+    }
+
+    li.notify .notify-item {
+        padding-bottom: 8px;
+        padding-left: 30px !important;
+        clear: right;
+        width: 390px;
+    }
+
+    li.notify .avatar {
+        padding: 1px;
+        border: 1px solid #be21dd !important;
+        border-radius: 0;
+        width: 34px !important;
+        height: 34px !important;
+        top: -2px !important;
+    }
+
+    li.notify .title {
+        color: #be21dd;
+        font-weight: normal !important;
+    }
+
+    li.notify .read .avatar {
+        border: 1px solid #555 !important;
+    }
+
+    li.notify .read .title {
+        color: #555;
+    }
+
+    li.notify .avatar img {
+        width: 30px;
+        height: 30px;
+        max-width: 30px;
+    }
+
+    li.notify .notify-content {
+        display: none;
+        margin-top: 4px;
+        white-space: normal;
+    }
+
+    li.notify .content {
+        margin-bottom: 5px;
+    }
+
+    li.notify .datetime {
+        float: left;
+    }
+
+    li.notify .link {
+        text-align: right;
+        color: #1d7dca;
+        font-size: 12px;
+    }
+
+    .notify-mobile {
+        transform: translate3d(-25px, 35px, 0px) !important;
+    }
+</style>
+
+<div style="display: none;">
+    <input type="hidden" name="ctl00$ctl00$header$hdfIDsNotify" id="ctl00_ctl00_header_hdfIDsNotify" />
+    <input type="hidden" id="notify_pagenum" value="1" />
+    <input type="submit" name="ctl00$ctl00$header$btnClearNotify" value="" id="ctl00_ctl00_header_btnClearNotify" />
+</div>
+
+<header id="ctl00_ctl00_header_headercs" class="header">
+    <div class="logo">
+        <a href="#" class="img"><img src='/style/custom/images/logo.jpg' alt='' style='background: none;'></a>
+        
+        <div class="title">Đánh giá</div>
+        <div class="subtitle">PHÒNG HỌP KHÔNG GIẤY</div>
+    </div>
+    <div class="box-menus-right">
+        <ul class="menus">
+            
+            
+
+            
+            <li class='active' style="margin-right: 10px">
+                <a id="lichGanNhat" href="#">
+                    <span class='icon fa fa-calendar-check-o'></span>
+                    <span class='text'>Lịch gần nhất</span>
+                </a>
+            </li>
+            <li style="margin-right: 10px">
+               
+
+                
+                 <a href="/Pages/Frontend/PhienHop/DanhSachLichLamViec.aspx" data-toggle='dropdown'>
+                    <span class="icon fa fa-calendar"></span>
+                    <span class="text">Lịch cá nhân </span>
+                </a>
+                
+                <div id="ykienNotification" class='number' style='display: none; width: 16px; position: relative; top: -50px; left: -165px; line-height: 16px; height: 16px; font-weight: bold; background: #e61f53; border-radius: 50%; text-align: center; color: #fff; font-size: 10px;'>0</div>
+                <ul class="dropdown-menu">
+                    <li><a href="/Pages/Frontend/PhienHop/DanhSachLichLamViec.aspx"><span class="icon fa fa-calendar-plus-o"></span>Lịch cá nhân </a></li>
+                    <li><a href="/Pages/Frontend/PhienHop/DanhSachLichMoiHop.aspx"><span class="icon fa fa-calendar-plus-o"></span>Lịch mời họp </a></li>
+                    
+                    </ul>
+                    
+                
+            </li>
+            
+            <li style="margin-right: 10px">
+                <a href="/Pages/Frontend/Files/DanhSachFileCaNhan.aspx" data-toggle='dropdown'>
+                    <span class="icon fa fa-file-text"></span>
+                    <span class="text">Tài liệu </span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/Pages/Frontend/Files/DanhSachFileDungChung.aspx"><span class="icon fa fa-calendar-plus-o"></span>Tài liệu dùng chung</a></li>
+                    <li><a href="/Pages/Frontend/Files/DanhSachFileCaNhan.aspx"><span class="icon fa fa-calendar-plus-o"></span>Tài liệu cá nhân</a></li>
+                </ul>
+            </li>
+            
+            <li style="margin-right: 10px">
+                
+                <a href="/Pages/Frontend/PhienHop/DanhSachLichDonVi.aspx">
+                    <span class="icon fa fa-calendar-o"></span>
+                    <span class="text">Lịch đơn vị </span>
+                </a>
+                
+            </li>
+            
+           
+             <li style="margin-right: 10px">
+                <a href="/Pages/Frontend/PhienHop/DanhSachTaiLieuPhienHopCu.aspx">
+                    <span class="icon fa fa-calendar-plus-o"></span>
+                    <span class="text">Tìm kiếm tài liệu </span>
+                </a>
+            </li>
+            <li class="dropdown" style="margin-right: 10px">
+                <a href="#" data-toggle="dropdown">
+                    <span class="icon fa fa-arrow-circle-o-right"></span>
+                    <span class="text">Liên kết khác </span>
+                </a>
+                <ul class="dropdown-menu">
+                    
+                </ul>
+            </li>
+        </ul>
+        <div class="nav-toggle" style="right: 70px;">
+            <span class="icon -ap icon-menu3"></span>
+        </div>
+
+        <ul class="box-user" style="background: none">
+            <li class='notify dropdown' style='padding-right: 0px;'>
+                                            <div data-toggle='dropdown' class='notify-toggle'>
+                                                
+                                                <span class='icon fa fa-bell-o'></span>
+                                            </div>
+                                            <ul class='dropdown-menu' style='max-height: 500px; overflow-y: scroll; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-169px, 35px, 0px);'>
+                                                <li class='head' style='height: 40px;'>
+                                                    <a href='#' class='checkall' style='right: 320px;' onclick='setAllNotify()'>Tất cả</a>
+                                                    <a href='/Pages/Frontend/Notification/DanhSachThongBao.aspx' target='_blank' class='checkall' style='right: 180px;'>Xem tất cả</a>
+                                                    <a href='#' class='checkall' onclick='xacNhanDoc("0");'>Đánh dấu đã đọc</a>
+                                                </li>
+                                                <li style='min-width: 350px; padding: 15px;'><span style='color: red; font-weight: bold; font-size: 15px;'>Không có thông báo mới!</span></li>
+                                            </ul>
+                                        </li>
+            <li class="header-nav-item -user dropdown" style="padding-left:0px">
+                <div class="wrap" data-toggle="dropdown" aria-expanded="false" style="display:flex;align-items:center;column-gap:7px;">
+                    <div class="avatar" style="position:static;"><img style='width: 30px; height: 30px; border-radius: 50%;' src='/style/custom/img/default-avatar.png' /></div>
+                    <div class="name" style="margin-top: 0px;flex:1;min-width:0px;margin:0px;">
+                        quantrihieunang
+                        <span style="display:block;font-weight:normal;font-size:12px;margin-top:3px;"></span>
+
+                    </div>
+                    <span class="fa fa-angle-down"></span>
+                    
+                </div>
+                <ul class="dropdown-menu">
+                    
+                    <li><a href="/Pages/Backend/default.aspx"><span class="icon fa fa-user"></span>Quản trị nội dung</a></li>
+                    <li><a href="/Pages/Frontend/ThongTinCaNhan.aspx"><span class="icon fa fa-user"></span>Thông tin cá nhân</a></li>
+                    <li id="liCauHinhHeThong" style="display: none"><a href="/Pages/Backend/CauHinhHeThong.aspx"><span class="icon fa fa-cog"></span>Cấu hình hệ thống</a></li>
+                    <li><a href="/Pages/DangXuat.aspx"><span class="icon fa fa-sign-out "></span>Đăng xuất</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<div style="display: none">
+    <input type="hidden" name="ctl00$ctl00$header$hdfIDTaiKhoanDuocUyQuyen" id="ctl00_ctl00_header_hdfIDTaiKhoanDuocUyQuyen" value="0" />
+    <input type="submit" name="ctl00$ctl00$header$btnChuyenTaiKhoan" value="Chuyển tài khoản" id="ctl00_ctl00_header_btnChuyenTaiKhoan" />
+</div>
+<div id='thongBaoDiv' class="alert-fix" onclick="redirectToPage(this)" style="display: none; z-index: 9999;">
+    <span class="icon -ap icon icon-ion-ios-checkmark"></span>
+    <span id='noiDungThongBao'></span>
+    <span class="-ap close icon-close"></span>
+    <input type="hidden" class="hdfThongBaoParam" />
+</div>
+<div id="dieukhoan-popup" class="modal" role="dialog">
+    <div class="modal-dialog" style="max-width: 1200px; width: 100%;">
+    </div>
+</div>
+<script>
+    function redirectToPage(element) {
+        var url = $(element).find(".hdfThongBaoParam:first").val();
+        if (url != "#" && url != "") {
+            window.location = url;
+        }
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        iniPhatBieuJsHelper();
+        if (0 === 0) {
+
+            $("#ykienNotification").css("display", "none");
+        } else {
+            $("#ykienNotification").css("display", "block");
+        }
+        $("ul.menus li").each(function () {
+            if ($(this).find('a').attr('href').indexOf(window.location.pathname) > -1) {
+                $(this).attr('class', 'active');
+            }
+            else {
+                $(this).attr('class', '');
+            }
+        });
+    });
+    function iniPhatBieuJsHelper() {
+
+        window.PhatBieuJsHelper = {
+            LoaiEvtDangKyPhatBieu: "dangKyPhatBieu",
+            LoaiEvtUpdateDangKyPhatBieu: "updateDangKyPhatBieu",
+            LoaiEvtHuyDangKyPhatBieu: "huyDangKyPhatBieu",
+            LoaiEvtChuanBiPhatBieu: "chuanBiPhatBieu",
+            LoaiEvtBatDauPhatBieu: "batDauPhatBieu",
+            LoaiEvtXacNhanPhatBieu: "xacNhanPhatBieu",
+            LoaiEvtSuggestRefreshPhatBieuUi: "suggestRefreshPhatBieuUi",
+
+            OnReceiveNotification: function (evt) {
+                var self = window.PhatBieuJsHelper;
+
+                var evtHandled = false;
+                try {
+                    switch (evt.loai) {
+                        case self.LoaiEvtDangKyPhatBieu:
+                            self.HandleDangKyPhatBieuEvt(evt);
+                            break;
+                        case self.LoaiEvtChuanBiPhatBieu:
+                            self.HandleChuanBiPhatBieuEvt(evt);
+                            break;
+                        case self.LoaiEvtBatDauPhatBieu:
+                            self.HandleBatDauPhatBieuEvt(evt);
+                            break;
+                        case self.LoaiEvtXacNhanPhatBieu:
+                            self.HandleXacNhanPhatBieuEvt(evt);
+                            break;
+                        case self.LoaiEvtSuggestRefreshPhatBieuUi:
+                            self.HandleSuggestRefreshPhatBieuUiEvt(evt);
+                            break;
+                        default:
+                            return evtHandled;
+                    }
+                    evtHandled = true;
+                    return evtHandled;
+                } catch (e) {
+
+                }
+            },
+
+            ShowThongBaoPhatBieu: function (noiDungThongBao) {
+                var self = window.PhatBieuJsHelper;
+
+                try {
+                    //openDialogThongBao(noiDungThongBao);
+                    //return;
+                    $('#noiDungThongBao').text(noiDungThongBao);
+                    $('#thongBaoDiv').css('display', '');
+                    if (self.TimeoutHandle) {
+                        window.clearTimeout(self.TimeoutHandle);
+                        self.TimeoutHandle = 0;
+                    }
+                    self.TimeoutHandle = window.setTimeout(function () {
+                        var self = window.PhatBieuJsHelper;
+                        self.TimeoutHandle = 0;
+                        $('#thongBaoDiv').css('display', 'none');
+                        $('#noiDungThongBao').text('');
+                    }, 3000);
+                } catch (ex) {
+                    self.HandleException(ex);
+                }
+            },
+
+            SetChuChanTrang: function (noiDungChuChayChanTrang) {
+                try {
+                    $('#divNoiDungChuChayChanTran').text(noiDungChuChayChanTrang);
+                } catch (ex) {
+                    self.HandleException(ex);
+                }
+            },
+
+            PhatBieuNotification: function (senderNhanVienStrId, receiverNhanVienStrIds, nhanVienPhatBieuId, loaiThongBao, noiDungThongBao) {
+                var self = window.PhatBieuJsHelper;
+
+                //try {
+                var notificationMessage = {
+                    loai: loaiThongBao,
+                    noiDungThongBao: noiDungThongBao,
+                    nhanVienPhatBieuId: nhanVienPhatBieuId,
+                    senderNhanVienStrId: senderNhanVienStrId,
+                    tenNguoiGui: tenCurrentNhanVien,
+                    idPhienHop: idCurrentPhienHop
+                };
+                send_message(receiverNhanVienStrIds, notificationMessage);
+                //}catch (ex) {
+                //    self.HandleException(ex);
+                //}
+            },
+
+            HandleDangKyPhatBieuEvt: function (notificationMessage) {
+                var self = window.PhatBieuJsHelper;
+
+                try {
+                    if (isMobileDevice == "false")
+                        self.ShowThongBaoPhatBieu(notificationMessage.noiDungThongBao);
+                    if (window.DieuHanhPhienHopJsHelper) {
+                        window.DieuHanhPhienHopJsHelper.HandleDangKyPhatBieuEvt();
+                    }
+                } catch (ex) {
+                    self.HandleException(ex);
+                }
+            },
+
+            HandleChuanBiPhatBieuEvt: function (notificationMessage) {
+                var self = window.PhatBieuJsHelper;
+
+                try {
+                    self.ShowThongBaoPhatBieu(notificationMessage.noiDungThongBao);
+                } catch (ex) {
+                    self.HandleException(ex);
+                }
+            },
+
+            HandleBatDauPhatBieuEvt: function (notificationMessage) {
+                var self = window.PhatBieuJsHelper;
+
+                try {
+                    if (isMobileDevice == "false")
+                        self.ShowThongBaoPhatBieu(notificationMessage.noiDungThongBao);
+                } catch (ex) {
+                    self.HandleException(ex);
+                }
+            },
+
+            HandleXacNhanPhatBieuEvt: function (notificationMessage) {
+                var self = window.PhatBieuJsHelper;
+
+                try {
+                    self.ShowThongBaoPhatBieu(notificationMessage.noiDungThongBao);
+                } catch (ex) {
+                    self.HandleException(ex);
+                }
+            },
+
+            HandleSuggestRefreshPhatBieuUiEvt: function (notificationMessage) {
+                var self = window.PhatBieuJsHelper;
+
+                try {
+                    if (window.PhienHopJsHelper) {
+                        window.PhienHopJsHelper.HandleSuggestRefreshPhatBieuUiEvt();
+                    }
+                    if (window.DieuHanhPhienHopJsHelper) {
+                        window.DieuHanhPhienHopJsHelper.HandleSuggestRefreshPhatBieuUiEvt();
+                    }
+                    if (window.DangKyPhatBieusJsHelper) {
+                        window.DangKyPhatBieusJsHelper.HandleSuggestRefreshPhatBieuUiEvt();
+                    }
+
+                    self.SetChuChanTrang(notificationMessage.noiDungThongBao);
+
+                } catch (ex) {
+                    self.HandleException(ex);
+                }
+            },
+
+            HandleException: function (ex) {
+                console.error(ex.message);
+                console.error(ex);
+                alert(ex.message);
+            }
+        }
+    }
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        if ($("header .box-user").offset().top > 0) {
+            $(".header-bottom").css("position", "static");
+            $(".box-menus-right .nav-toggle").css("color", "#1b7dcc");
+            $(".box-menus-right .notify").css("color", "#1b7dcc");
+            $(".box-menus-right .wrap").css("color", "#1b7dcc");
+            $(".header .box-user .notify .dropdown-menu").addClass("notify-mobile");
+        }
+    });
+
+
+    $(window).resize(function () {
+        if ($("header .box-user").offset().top > 0) {
+            $(".header-bottom").css("position", "static");
+
+            $(".box-menus-right .nav-toggle").css("color", "#1b7dcc");
+            $(".box-menus-right .notify").css("color", "#1b7dcc");
+            $(".box-menus-right .wrap").css("color", "#1b7dcc");
+            $(".header .box-user .notify .dropdown-menu").addClass("notify-mobile");
+        }
+        else {
+            $(".header-bottom").css("position", "relative");
+            $(".box-menus-right .nav-toggle").css("color", "#ffffff");
+            $(".box-menus-right .notify").css("color", "#ffffff");
+            $(".box-menus-right .wrap").css("color", "#ffffff");
+            $(".header .box-user .notify .dropdown-menu").removeClass("notify-mobile");
+        }
+    });
+</script>
+
+        
+        
+
+        
+        
+
+
+
+<script>
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+</script>
+
+<link rel="stylesheet" href="/style/custom/validation/validationEngine.jquery.css" type="text/css" />
+
+<script src="/style/custom/validation/jquery.validationEngine.js" type="text/javascript" charset="utf-8">
+</script>
+<script src="/style/custom/validation/jquery.validationEngine-vi.js?ver=4" type="text/javascript" charset="utf-8">
+</script>
+
+
+
+<script src="/style/custom/js/realtime/DangKyPhatBieuJsUtil.js" type="text/javascript" charset="utf-8"></script>
+<script src="/style/custom/js/realtime/GhiAmJsUtil.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript" src="/style/custom/js/realtime/NoiDungHopJsUtil.js"></script>
+
+
+
+
+<script>
+    var idCurrentNhanVien = '107471';
+    var namePrefix = 'Đồng chí ';
+
+    var tenCurrentNhanVien = 'quantrihieunang';
+    idCurrentPhienHop = '63677';
+    var idCurrentPhienHop_PhatBieu = "";//ltvinh add
+    //ecabinet-2123-nqanh add
+    var noiDungCurrentDangKyPhatBieu = ``;
+    var access_Token = "";
+    var maPhongHop = "";
+    var addressSocketServer = "";
+    //end.ecabinet-2123-nqanh add
+    var idCurrentPhienHop_HoTro = "0";//ltvinh add
+    var idsNhanVienChuTri;
+    var idsNhanVienHoTro;//ltvinh add
+    var idsNhanVienThamGia;
+    var noiDungYeuCauHoTro;//ltvinh add
+    var diaDiemYeuCauHoTro = `Long Sơn khách điếm`;//ltvinh add
+    var idDonViDocLap = '31578' // huy add
+    var idsNhanVienHoTroDieuHanh; //Ecb-3039 Huu Minh add
+    //var websocketURI = 'wss://edoc.TESTsoftware.vn/QLVB_WebSocket/echo/';
+    //initSocket(websocketURI, idCurrentNhanVien);
+    var isAnSoDoViTri = "False";
+    var thoiLuongPhatBieuMacDinh = ''; //ECABINET-1876 tanduong
+
+    var isAutoGhiAm = true;
+    if ('False' == 'True') {
+        isAutoGhiAm = false;
+    }
+  
+
+    $(document).ready(function () {
+
+
+
+        chuyenMauNutDangKyPhatBieu();//nếu đã đăng ký phát biểu thì chuyển màu nút
+        var objsNhanVienChuTri = getDanhSachChuTri();
+        idsNhanVienChuTri = "";
+        for (var i = 0; i < objsNhanVienChuTri.length; i++) {
+            idsNhanVienChuTri += objsNhanVienChuTri[i].IDNhanVien + ",";
+        }
+        if (idsNhanVienChuTri != "") {
+            idsNhanVienChuTri = idsNhanVienChuTri.substr(0, idsNhanVienChuTri.length - 1);
+        }
+
+
+        var objsNhanVienThamGia = getDanhSachThamGia();
+        idsNhanVienThamGia = "";
+        for (var i = 0; i < objsNhanVienThamGia.length; i++) {
+            idsNhanVienThamGia += objsNhanVienThamGia[i].IDNhanVien + ",";
+        }
+        if (idsNhanVienThamGia != "") {
+            idsNhanVienThamGia = idsNhanVienThamGia.substr(0, idsNhanVienThamGia.length - 1);
+        }
+
+        //ltvinh add
+        var objsNhanVienHoTro = getDanhSachHoTro();
+        if (objsNhanVienHoTro.length === 0) {
+            objsNhanVienHoTro = getDanhSachHoTroChung();
+        }
+        idsNhanVienHoTro = "";
+        for (var j = 0; j < objsNhanVienHoTro.length; j++) {
+            idsNhanVienHoTro += objsNhanVienHoTro[j].IDNhanVien + ",";
+        }
+        if (idsNhanVienHoTro !== "") {
+            idsNhanVienHoTro = idsNhanVienHoTro.substr(0, idsNhanVienHoTro.length - 1);
+        }
+
+        //Ecb-3039 Huu Minh add
+        var objsNhanVienHoTroDieuHanh = getDanhSachHoTroDieuHanh();
+        idsNhanVienHoTroDieuHanh = "";
+        for (var i = 0; i < objsNhanVienHoTroDieuHanh.length; i++) {
+            idsNhanVienHoTroDieuHanh += objsNhanVienHoTroDieuHanh[i].IDNhanVien + ",";
+        }
+        if (idsNhanVienHoTroDieuHanh != "") {
+            idsNhanVienHoTroDieuHanh = idsNhanVienHoTroDieuHanh.substr(0, idsNhanVienHoTroDieuHanh.length - 1);
+        }
+
+        if (("," + idsNhanVienHoTro + ",").indexOf("," + idCurrentNhanVien + ",") > -1) {//nếu trong danh sách hỗ trợ thì hiển thị tab hỗ trợ
+            //$("#popup_YeuCauHoTro").css("display", "");
+            //$("#buttonYeuCauHoTro").css("display", "none");
+            $("#liThongTinSoDo").css("display", "");
+        }
+        //end.ltvinh add
+
+        if (("," + idsNhanVienChuTri + ",").indexOf("," + idCurrentNhanVien + ",") > -1) {//nếu trong danh sách chủ trì thì hiển thị thông tin điều hành
+            $("#popup_DangKyPhatBieu").css("display", "");
+            //$("#popup_DangKyPhatBieu").css("display", "none");
+            $("#liThongTinDieuHanh").css("display", "");
+            /*nqanh cmt
+            $("#popup_YeuCauHoTro").css("display", "");//ltvinh add
+            */
+        }
+        else { //tinhbcvt:tru chu tri thi ai cung thay tab So do vi tri
+            if (isAnSoDoViTri.toLowerCase() != "true") {
+                $("#liThongTinSoDo").css("display", "");
+            }
+        }
+        GetnguoiThamGiaPhienHop();//ltvinh add
+
+        //Huu Minh add
+        if (("," + idsNhanVienThamGia + ",").indexOf("," + idCurrentNhanVien + ",") > -1 && isAnSoDoViTri.toLowerCase() != "true") {//nếu trong danh sách chủ trì thì hiển thị thông tin điều hành
+            $("#liThongTinSoDo").css("display", "");
+        }
+        initPhienHopJsHelper();
+
+        //ecabinet-2123-nqanh add
+
+        
+
+        if ('False'.toLowerCase() == 'true') {
+            initDangKyPhatBieuJsUtil();
+        }
+
+        //end.ecabinet-2123-end.nqanh add
+
+        
+    });
+    //ltvinh add
+    function GetnguoiThamGiaPhienHop() {
+        var nguoiThamGiaPhienHopSession = sessionStorage.getItem('nguoiThamGiaPhienHopSession' + idCurrentPhienHop);
+        if (nguoiThamGiaPhienHopSession !== null) {
+            $("#ctl00_ctl00_MainContentPlaceHolder_MenuNgang_lblDiemDanh").text(nguoiThamGiaPhienHopSession.soNguoi);
+        }
+        else {
+            $.ajax({
+                url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=GetnguoiThamGiaPhienHop&idPhienHop=' + idCurrentPhienHop + '&idDonViDocLap=' + idDonViDocLap),
+                cache: false,
+                type: 'post',
+                dataType: 'json',
+                data: "",
+                async: false,
+                success: (function (result) {
+                    $("#ctl00_ctl00_MainContentPlaceHolder_MenuNgang_lblDiemDanh").text(result.soNguoi);
+                    sessionStorage.setItem('nguoiThamGiaPhienHopSession' + idCurrentPhienHop, JSON.stringify(result));
+                 })
+             });
+        }
+    }
+    //end.ltvinh add
+
+    //huy add
+    function checkDiemDanh() {
+        var result = false;
+        $.ajax({
+            url: RoutingUtil.EncryptURL('/Pages/FormCommon/ProcessAjaxRequest.aspx?Command=checkTrangThaiDiemDanh'),
+            type: 'post',
+            dataType: 'html',
+            data: {
+                "idPhienHop": idCurrentPhienHop,
+                "idNhanVien": idCurrentNhanVien,
+            },
+            async: false,
+            success: (function (html) {
+                var jsonObject = JSON.parse(html);
+                if (jsonObject[0].TrangThaiDiemDanh == "True") result = true;
+                else result = false;
+            })
+        });
+        return result;
+    }
+
+    function dangKyPhatBieu() {
+        if (idCurrentPhienHop_PhatBieu == "") {
+            $.ajax({
+                url: RoutingUtil.EncryptURL('/Pages/FormCommon/ProcessAjaxRequest.aspx?Command=checkTrangThaiDiemDanh'),
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    "idPhienHop": idCurrentPhienHop,
+                    "idNhanVien": idCurrentNhanVien,
+                },
+                success: (function (html) {
+                    var jsonObject = JSON.parse(html);
+                    if (jsonObject[0].TrangThaiDiemDanh == "True") {
+                        // đã điểm danh
+                        idCurrentPhienHop_PhatBieu = addDangKyPhatBieuIntoDatabase();
+                        chuyenMauNutDangKyPhatBieu();
+                        openDialogThongBao(namePrefix + "đã đăng ký phát biểu!");
+                        var noiDungThongBao = namePrefix + tenCurrentNhanVien + ' đăng ký phát biểu';
+                        var data = {
+                            idNguoiGui: idCurrentNhanVien,
+                            tenNguoiGui: tenCurrentNhanVien,
+                            idPhienHop: idCurrentPhienHop,
+                            idPhienHop_PhatBieu: idCurrentPhienHop_PhatBieu,
+                            noiDungThongBao: noiDungThongBao,
+                            loai: 'dangKyPhatBieu'
+                        };
+                        var idsNhanVienDieuHanh = idsNhanVienChuTri + ',' + idsNhanVienHoTroDieuHanh + ',' + idCurrentNhanVien + ',' + idsNhanVienThamGia + ',' + idsNhanVienHoTro;// ecb-3039 huu minh update
+                        var receivers = idsNhanVienDieuHanh.split(',').filter(onlyUnique); // ecb-3039 huu minh update
+                        send_message(receivers, data);
+                        DangKyPhatBieuJsUtil.CapNhatNutBamVaDialogDangKyPhatBieu();
+                    }
+                    else {
+                        // chua điểm danh
+                        openDialogThongBao(namePrefix + "chưa được điểm danh! Vui lòng đợi");
+                    }
+                })
+            });
+        }
+        else {
+            //đã đăng ký phát biểu
+            openDialogThongBao(namePrefix + "đã đăng ký phát biểu! Vui lòng đợi!");
+        }
+    };
+    //ltvinh add
+    var templatePopupFinishSupport =
+        `
+<div id="popup-dkpb-FinishSupport" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width:600px;width:100%;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><b>Thông báo</b></h4>
+        </div>
+            <div class="modal-body">
+               <div class="profile-info-row"  text-align: left;">
+                <span style="font-weight:bold">Yêu cầu của bạn:</span>
+            </div>  
+             <div class="profile-info-row"   text-align: left;">
+                <div>contentSupportQuestionHolder</div>
+            </div>  
+            <div class="profile-info-row"   text-align: left;">
+                <span style="font-weight:bold">Đã được hỗ trợ:</span>
+            </div> 
+            <div class="profile-info-row"   text-align: left;">
+                <div>contentSupportAnswerHolder</div>
+            </div>  
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" onclick="$('#popup-dkpb-FinishSupport').modal('hide')">Thoát</button>
+        </div>
+    </div>
+    </div>
+</div>
+`;
+    var templatePopupSupport =
+        `
+<div id="popup-dkpb-support" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width:600px;width:100%;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><b>Hỗ trợ</b></h4>
+        </div>
+        <div class="modal-body">
+            <div class="profile-info-row" >
+                <div class="key">contentHolder</div>
+
+            </div>        
+                <div class="profile-info-row">
+                    <div class="key">Nội dung hỗ trợ: <span class="red">*</span></div>
+                    <div class="value">
+ <textarea class="validate[required] form-control" placeholder="Nhập nội dung hỗ trợ" name="message" id="message"  rows="10" cols="30"></textarea>
+                       
+
+                    </div>
+                </div>
+           
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" onclick="functionHolder">Đồng ý</button>
+            <button class="btn btn-default" onclick="$('#popup-dkpb-support').modal('hide')">Thoát</button>
+        </div>
+    </div>
+    </div>
+</div>
+`;
+    var templatePopupSupportRequire =
+        `<div id="popup-dkpb-supportRequire" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width:600px;width:100%;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><b>Hỗ trợ</b></h4>
+        </div>
+        <div class="modal-body">
+            <div class="profile-info-row" >
+                <div class="key">contentHolder</div>
+
+            </div>        
+                <div class="profile-info-row">
+                    <div class="key">Nội dung hỗ trợ: <span class="red">*</span></div>
+                    <div class="value">
+                      <textarea maxlength="2000" class="validate[required] form-control" placeholder="Nhập nội dung yêu cầu hỗ trợ (tối đa 2000 kí tự)" name="messageYeuCauHoTro" id="messageYeuCauHoTro" rows="10" cols="30"></textarea>
+ 
+                    </div>
+                </div>
+                <div class="profile-info-row">
+                    <div class="key">Địa điểm: <span class="red">*</span></div>
+                    <div class="value">
+                      <textarea class="validate[required] form-control" placeholder="Nhập địa điểm yêu cầu hỗ trợ" name="locateYeuCauHoTro" id="locateYeuCauHoTro" rows="1" cols="30"></textarea>
+ 
+                    </div>
+                </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default" onclick="functionHolder">Đồng ý</button>
+            <button class="btn btn-default" onclick="$('#popup-dkpb-supportRequire').modal('hide')">Thoát</button>
+        </div>
+    </div>
+    </div>
+</div>
+`;
+    function yeuCauHoTro() {
+        noiDungYeuCauHoTro = $('textarea#messageYeuCauHoTro').val();
+        diaDiemYeuCauHoTro = $('textarea#locateYeuCauHoTro').val();
+        if (noiDungYeuCauHoTro.length === 0) {
+            alert("Bạn phải nhập nội dung yêu cầu hỗ trợ");
+            return;
+        }
+        if (diaDiemYeuCauHoTro.length === 0) {
+            alert("Bạn phải nhập địa điểm yêu cầu hỗ trợ");
+            return;
+        }
+        if (noiDungYeuCauHoTro.length > 0 && diaDiemYeuCauHoTro.length > 0) {
+            try {
+                idCurrentPhienHop_HoTro = addYeuCauHoTroIntoDatabase();
+                var data = {
+                    idNguoiGui: idCurrentNhanVien,
+                    tenNguoiGui: tenCurrentNhanVien,
+                    idPhienHop: idCurrentPhienHop,
+                    idHoTroPhienHop: idCurrentPhienHop_HoTro,
+                    loai: 'yeuCauHoTro'
+                };
+                // gửi cả thông tin cho nhân viên hỗ trợ và chủ trì
+
+                var receiversHoTro = idsNhanVienHoTro.split(',');
+                send_message(receiversHoTro, data);
+            } catch (e) {
+                console.log("Gửi yêu cầu hỗ trợ thất bại");
+            }
+
+            try {
+                loadDsYeuCauHoTro('ChuaDuocHoTro', 'chuaDuocHoTro');
+            } catch (e) {
+                console.log('khong o trang danh sach ho tro');
+            }
+        }
+        else {
+            alert("Nội dung yêu cầu hỗ trợ và địa điểm yêu cầu hỗ trợ không được để trống");
+        }
+    };
+
+    function huyYeuCauHoTro(idYeuCauHoTro) {
+
+        huyYeuCauHoTroIntoDatabase(idYeuCauHoTro);
+        var data = {
+            tenNhanVienHuyYeuCauHoTro: tenCurrentNhanVien,
+            idPhienHop: idCurrentPhienHop,
+            idYeuCauHoTro: idYeuCauHoTro,
+            loai: 'huyYeuCauHoTro'
+        };
+        // gửi cả thông tin cho nhân viên hỗ trợ và chủ trì
+        var receiversHoTro = idsNhanVienHoTro.split(',');
+        send_message(receiversHoTro, data);
+        alert("Bạn đã hủy thành công yêu cầu hỗ trợ");
+        loadDsYeuCauHoTro('ChuaDuocHoTro', 'chuaDuocHoTro');
+    };
+    //end.ltvinh add
+
+
+    //ltvinh add
+    function processEventDiemDanh(data) {
+        //console.log($("#iFramediemdanh-popup").contents().find('#cbx_DiemDanh_128').html());
+        var frame = document.getElementById('iFramediemdanh-popup');
+        if (frame !== null && frame != undefined)
+            var checkboxes = frame.contentWindow.document.getElementById('cbx_DiemDanh_' + data.idNhanVien);
+        if (checkboxes !== null && checkboxes != undefined)
+            checkboxes.checked = data.isChecked;
+
+        GetnguoiThamGiaPhienHop();
+        // huy add
+        //var currentURL = RoutingUtil.DecryptURL(window.location.pathname);
+        //alert(currentURL);
+        //if (currentURL.indexOf('Pages/Frontend/PhienHop/PhienHop_ThongTin.aspx') > -1) {
+        //    updateDashBoardDiemDanh(data)
+        //}
+        if (data != null && data.isHopTuXa != undefined) {
+            chuyenMauHopTuXa(data.idNhanVien, data.isHopTuXa);
+        }
+        try {
+            updateDashBoardDiemDanh(data);
+        } catch (e) {
+            console.log('không ở trang phienhop_thongtin');
+        }
+    }
+
+    function chuyenMauHopTuXa(idNhanVien, isHopTuXa) {
+        var elementGheNgoi = $("#divSoDoDieuHanh").find("div[idNhanVien='" + idNhanVien + "']");
+        if (isHopTuXa)
+            elementGheNgoi.addClass("-htx");
+        else
+            elementGheNgoi.removeClass("-htx");
+    }
+
+    function processEventDaHoTroXong(data) {
+        openDialogFinishSupport(data.noiDungYeuCauHoTro, data.noiDung);
+        loadDsYeuCauHoTro('DaHoTro', 'daHoTro');
+        loadDsYeuCauHoTro('ChuaDuocHoTro', 'chuaDuocHoTro');
+    }
+    function processEventHuyYeuCauHoTro(data) {
+
+        $("#div_YeuCauHoTro_NhanVien_" + data.idYeuCauHoTro).remove();
+        loadDsYeuCauHoTro('ChuaDuocHoTro', 'chuaDuocHoTro');
+        PhatBieuJsHelper.ShowThongBaoPhatBieu(namePrefix + data.tenNhanVienHuyYeuCauHoTro + " đã hủy yêu cầu hỗ trơ!");
+
+    }
+    function processEventYeuCauHoTro(data) {
+
+        var templateYeuCauHoTro = `
+<div class="item" id="div_YeuCauHoTro_NhanVien_idNhanVienHolder" onclick="functionXacNhanDaHoTroHolder">
+    <p class="name">namePrefix: <strong>tenHolder</strong> đã yêu cầu hỗ trợ: noiDungHolder</p>
+    <div class="time">dateHolder 
+        <span class="main">
+            hourHolder
+        </span>
+    </div>
+</div>`;
+        templateYeuCauHoTro = templateYeuCauHoTro.replace(/idNhanVienHolder/g, data.idHoTroPhienHop);
+        var strfunctionXacNhanDaHoTroHolder = "openDialogSupport(" +
+            idCurrentNhanVien +
+            "," +
+            data.idHoTroPhienHop +
+            "," +
+            data.idNguoiGui +
+            ")";
+        templateYeuCauHoTro =
+            templateYeuCauHoTro.replace(/functionXacNhanDaHoTroHolder/g, strfunctionXacNhanDaHoTroHolder);
+        templateYeuCauHoTro = templateYeuCauHoTro.replace(/tenHolder/g, data.tenNguoiGui);
+        templateYeuCauHoTro = templateYeuCauHoTro.replace(/namePrefix/g, namePrefix);
+        templateYeuCauHoTro = templateYeuCauHoTro.replace(/noiDungHolder/g, data.noiDung);
+        var today = new Date();
+        var year = today.getYear() - 100;
+        var date = (today.getDate() < 10) ? '0' + today.getDate() : today.getDate();
+        var month = ((today.getMonth() + 1) < 10) ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1);
+        var hour = (today.getHours() < 10) ? '0' + today.getHours() : today.getHours();
+        var minute = (today.getMinutes() < 10) ? '0' + today.getMinutes() : today.getMinutes();
+        var strDate = date + "/" + month + "/20" + year;
+        templateYeuCauHoTro = templateYeuCauHoTro.replace(/dateHolder/g, strDate);
+        var strTime = hour + ":" + minute;
+        templateYeuCauHoTro = templateYeuCauHoTro.replace(/hourHolder/g, strTime);
+        $("#div_Note_ChuaCoYeuCau").remove(); //xóa thông báo chưa có ai đăng ký
+        $("#divInPopup_YeuCauHoTro").prepend(templateYeuCauHoTro);
+        if (data.idNguoiGui != idCurrentNhanVien) { //do mình cũng gửi cho mình
+            //if (!$("#popup_YeuCauHoTro").hasClass("show")) {
+            //    $("#popup_YeuCauHoTro").addClass("show");
+            //}
+        }
+
+        PhatBieuJsHelper.ShowThongBaoPhatBieu(namePrefix + data.tenNguoiGui + " đã gửi yêu cầu hỗ trợ");
+        loadDsYeuCauHoTro('ChuaDuocHoTro', 'chuaDuocHoTro');
+    }
+    //end.ltvinh add
+
+    function processEventDangKyPhatBieu(data) {
+        var template =
+            `
+<div class="item" id="div_DangKyPhatBieu_NhanVien_idNhanVienHolder" onclick="functionXacNhanDaPhatBieuHolder">
+    <p class="name">namePrefix +: <strong>tenHolder</strong></p>
+    <div class="time">dateHolder 
+        <span class="main">
+            hourHolder
+        </span>
+    </div>
+</div>
+`;
+        template = template.replace(/idNhanVienHolder/g, data.idNguoiGui);
+        var strfunctionXacNhanDaPhatBieuHolder = "openDialogXacNhan('xacNhanDaPhatBieu','," + data.idNguoiGui + ",','" + namePrefix + data.tenNguoiGui + " đã phát biểu?')";
+        template = template.replace(/functionXacNhanDaPhatBieuHolder/g, strfunctionXacNhanDaPhatBieuHolder);
+        template = template.replace(/tenHolder/g, data.tenNguoiGui);
+        template = template.replace(/namePrefix/g, namePrefix);
+
+        var today = new Date();
+        //ltvinh add
+        var year = today.getYear() - 100;
+        var date = (today.getDate() < 10) ? '0' + today.getDate() : today.getDate();
+        var month = ((today.getMonth() + 1) < 10) ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1);
+        var hour = (today.getHours() < 10) ? '0' + today.getHours() : today.getHours();
+        var minute = (today.getMinutes() < 10) ? '0' + today.getMinutes() : today.getMinutes();
+        var strDate = date + "/" + month + "/20" + year;
+        //end.ltvinh add
+        template = template.replace(/dateHolder/g, strDate);
+        var strTime = hour + ":" + minute;//ltvinh add
+        template = template.replace(/hourHolder/g, strTime);
+
+        $("#div_Note_ChuaCoDangKy").remove();//xóa thông báo chưa có ai đăng ký
+
+        //ltvinh add
+        $("#divInPopup_DangKyPhatBieu").append(template);
+        if (data.idNguoiGui != idCurrentNhanVien) {//do mình cũng gửi cho mình
+            if (!$("#popup_DangKyPhatBieu").hasClass("show")) {
+                $("#popup_DangKyPhatBieu").addClass("show");
+            }
+        } else {
+            chuyenMauNutDangKyPhatBieu();
+        }
+        //end.ltvinh add
+
+        var element = $("#divSoDoDieuHanh");
+        if (element.length > 0) {
+            chuyenMauGheNgoi(data.idNguoiGui, "DangKyPhatBieu");
+            loadDsPhatBieu('DangKyPhatBieu', 'dangKyPhatBieu');
+        }
+    }
+
+    function processEventDaPhatBieu(data) {
+        if (idCurrentNhanVien == data.idNhanVienDaPhatBieu) {
+            idCurrentPhienHop_PhatBieu = "";
+            chuyenMauNutDangKyPhatBieu();
+
+        }
+        PhatBieuJsHelper.ShowThongBaoPhatBieu("Cảm ơn bài phát biểu của " + namePrefix + data.tenNhanVienDaPhatBieu + "!");
+        if (("," + idsNhanVienChuTri + ",").indexOf("," + idCurrentNhanVien + ",") > -1 || ("," + idsNhanVienHoTroDieuHanh + ",").indexOf("," + idCurrentNhanVien + ",") > -1) { // ecb-3039 huu minh add
+            $("#div_DangKyPhatBieu_NhanVien_" + data.idNhanVienDaPhatBieu).remove();
+            var element = $("#divSoDoDieuHanh");
+            if (element.length > 0) {//nếu đang ở trang điều hành
+                chuyenMauGheNgoi(data.idNhanVienDaPhatBieu, "DaPhatBieu");
+                loadDsPhatBieu('DaPhatBieu', 'daPhatBieu');
+                loadDsPhatBieu('DangKyPhatBieu', 'dangKyPhatBieu');//ltvinh add
+            }
+        }
+        var element = $("#divSoDoDieuHanh");
+        if (element.length > 0) {//nếu đang ở trang điều hành hoặc trang sơ đồ
+            chuyenMauGheNgoi(data.idNhanVienDaPhatBieu, "DaPhatBieu");// chuyển màu của người phát biểu
+        }
+        var div_dangkyphatbieu = $("div[id^='div_DangKyPhatBieu_NhanVien']");
+        var template_chuadangky =
+            `
+<div class="item" id="div_Note_ChuaCoDangKy">
+                        <p class="name">Chưa có đăng ký phát biểu!</p>
+                        
+                    </div>
+`;
+        if (div_dangkyphatbieu.length == 0)
+            $("#divInPopup_DangKyPhatBieu").append(template_chuadangky);
+    }
+    //ltvinh add
+    function processEventDaHoTro(data) {
+
+        if (("," + idsNhanVienChuTri + ",").indexOf("," + idCurrentNhanVien + ",") > -1) {
+            $("#div_YeuCauHoTro_NhanVien_" + data.idHoTroPhienHop).remove();
+        }
+        loadDsYeuCauHoTro('DaHoTro', 'daHoTro');
+
+        // receivers.push(data.idNhanVienYeuCauHoTro);
+        // send_message(receivers, data);
+
+    }
+    //end.ltvinh add
+
+    function chuyenMauGheNgoi(idNhanVien, trangThai) {
+        var elementGheNgoi = $("#divSoDoDieuHanh").find("div[idNhanVien='" + idNhanVien + "']");
+        elementGheNgoi.removeClass("cpb");
+        elementGheNgoi.removeClass("dkpb");
+        elementGheNgoi.removeClass("dpb");
+        if (trangThai == "DangKyPhatBieu") {
+            elementGheNgoi.addClass("dkpb");
+        }
+        else if (trangThai == "DaPhatBieu") {
+            elementGheNgoi.addClass("dpb");
+        }
+    }
+
+    function chuyenMauNutDangKyPhatBieu() {
+        if (idCurrentPhienHop_PhatBieu == "") {
+            $("#buttonDangKyPhatBieu").css("background", "#4CAF50");
+        } else {
+            $("#buttonDangKyPhatBieu").css("background", "#f9b6a1");
+        }
+    }
+
+    function getDanhSachChuTri() {
+        var objsNhanVienChuTri = null;
+        var objsNhanVienChuTriSession = sessionStorage.getItem('objsNhanVienChuTriSession' + idCurrentPhienHop);
+        if (objsNhanVienChuTriSession !== null) {
+            objsNhanVienChuTri = JSON.parse(objsNhanVienChuTriSession);
+        }
+        else {
+            $.ajax({
+                url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=GetDanhSachChuTriPhienHop&idPhienHop=' + idCurrentPhienHop),
+                cache: false,
+                type: 'post',
+                dataType: 'json',
+                data: "",
+                async: false,
+                success: (function (result) {
+                    objsNhanVienChuTri = result;
+                    sessionStorage.setItem('objsNhanVienChuTriSession' + idCurrentPhienHop, JSON.stringify(objsNhanVienChuTri));
+                })
+            });
+        }
+        return objsNhanVienChuTri;
+    }
+    //ltvinh add
+    function getDanhSachHoTro() {
+        var objsNhanVienHoTro = null;
+        var objsNhanVienHoTroSession = sessionStorage.getItem('objsNhanVienHoTroSession' + idCurrentPhienHop);
+        if (objsNhanVienHoTroSession !== null) {
+            objsNhanVienHoTro = JSON.parse(objsNhanVienHoTroSession);
+        }
+        else {
+            $.ajax({
+                url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=GetDanhSachHoTroPhienHop&idPhienHop=' + idCurrentPhienHop),
+                cache: false,
+                type: 'post',
+                dataType: 'json',
+                data: "",
+                async: false,
+                success: (function (result) {
+                    objsNhanVienHoTro = result;
+                    sessionStorage.setItem('objsNhanVienHoTroSession' + idCurrentPhienHop, JSON.stringify(objsNhanVienHoTro));
+                })
+            });
+        }
+        return objsNhanVienHoTro;
+    }
+    function getDanhSachHoTroChung() {
+        var objsNhanVienHoTro = null;
+        var objsNhanVienHoTroChungSession = sessionStorage.getItem('objsNhanVienHoTroChungSession' + idCurrentPhienHop);
+        if (objsNhanVienHoTroChungSession !== null) {
+            objsNhanVienHoTro = JSON.parse(objsNhanVienHoTroChungSession);
+        }
+        else {
+            $.ajax({
+                url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=GetDanhSachHoTroChung'),
+                cache: false,
+                type: 'post',
+                dataType: 'json',
+                data: "",
+                async: false,
+                success: (function (result) {
+                    objsNhanVienHoTro = result;
+                    sessionStorage.setItem('objsNhanVienHoTroChungSession' + idCurrentPhienHop, JSON.stringify(objsNhanVienHoTro));
+                })
+            });
+        }
+        return objsNhanVienHoTro;
+    }
+    //end.ltvinh add
+    function getDanhSachThamGia() {
+        var objsNhanVienThamGia = null;
+        var objsNhanVienThamGiaSession = sessionStorage.getItem('objsNhanVienThamGiaSession' + idCurrentPhienHop);
+        if (objsNhanVienThamGiaSession !== null) {
+            objsNhanVienThamGia = JSON.parse(objsNhanVienThamGiaSession);
+        }
+        else {
+            $.ajax({
+                url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=GetDanhSachThamGiaPhienHop&idPhienHop=' + idCurrentPhienHop + '&idDonViDocLap=' + idDonViDocLap),
+                cache: false,
+                type: 'post',
+                dataType: 'json',
+                data: "",
+                async: false,
+                success: (function (result) {
+                    objsNhanVienThamGia = result;
+                    sessionStorage.setItem('objsNhanVienThamGiaSession' + idCurrentPhienHop, JSON.stringify(objsNhanVienThamGia));
+                })
+            });
+        }
+        return objsNhanVienThamGia;
+    }
+
+    function getInfoNhanVienByIDs(iDsNhanVien) {
+
+        var idsNhanVienArr = iDsNhanVien.split(",");
+        iDsNhanVien = "";
+        for (var i = 0; i < idsNhanVienArr.length; i++) {
+            if (idsNhanVienArr[i].trim() != "") {
+                iDsNhanVien += idsNhanVienArr[i].trim() + ",";
+            }
+        }
+        if (iDsNhanVien != "") {
+            iDsNhanVien = iDsNhanVien.substr(0, iDsNhanVien.length - 1);
+        }
+        var objsNhanVien = null;
+        $.ajax({
+            url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=GetInfoNhanVien&iDsNhanVien=' + iDsNhanVien),
+            cache: false,
+            type: 'post',
+            dataType: 'json',
+            data: "",
+            async: false,
+            success: (function (result) {
+                objsNhanVien = result;
+            })
+        });
+        return objsNhanVien;
+    }
+    //Ecb-3039 Huu Minh add
+    function getDanhSachHoTroDieuHanh() {
+        var objsNhanVienHoTroDieuHanh = null;
+        //var objsNhanVienHoTroDieuHanhSession = sessionStorage.getItem('objsNhanVienHoTroDieuHanhSession' + idCurrentPhienHop);
+        //if (objsNhanVienHoTroDieuHanhSession !== null && objsNhanVienHoTroDieuHanhSession != "[]") {
+        //    objsNhanVienHoTroDieuHanh = JSON.parse(objsNhanVienHoTroDieuHanhSession);
+        //}
+        //else {
+        $.ajax({
+            url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=GetDanhSachHoTroDieuHanhPhienHop&idPhienHop=' + idCurrentPhienHop),
+            cache: false,
+            type: 'post',
+            dataType: 'json',
+            data: "",
+            async: false,
+            success: (function (result) {
+                objsNhanVienHoTroDieuHanh = result;
+                sessionStorage.setItem('objsNhanVienHoTroDieuHanhSession' + idCurrentPhienHop, JSON.stringify(objsNhanVienHoTroDieuHanh));
+            })
+        });
+        //}
+        return objsNhanVienHoTroDieuHanh;
+    }
+
+    //trả về id của PhienHop_PhatBieu
+    function addDangKyPhatBieuIntoDatabase() {
+        var resultReturn = null;
+        $.ajax({
+            url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=AddDangKyPhatBieuIntoDatabase'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "idPhienHop": "" + idCurrentPhienHop,
+                "idNhanVien": "" + idCurrentNhanVien,
+            },
+            async: false,
+            success: (function (result) {
+                resultReturn = result.idPhienHop_PhatBieu;
+            })
+        });
+        return resultReturn;
+    }
+
+    //ltvinh add
+    //trả về id của PhienHop_PhatBieu
+    function addYeuCauHoTroIntoDatabase() {
+        noiDungYeuCauHoTro = $('textarea#messageYeuCauHoTro').val();
+        diaDiemYeuCauHoTro = $('textarea#locateYeuCauHoTro').val();
+        $('#popup-dkpb-supportRequire').modal('hide');
+        var resultReturn = null;
+        $.ajax({
+            url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=AddYeuCauHoTroIntoDatabase'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "idPhienHop": "" + idCurrentPhienHop,
+                "diaDiemYeuCauHoTro": "" + diaDiemYeuCauHoTro,
+                "noiDungYeuCauHoTro": "" + noiDungYeuCauHoTro
+            },
+            async: false,
+            success: (function (result) {
+                resultReturn = result.idPhienHop_HoTro;
+            })
+        });
+        return resultReturn;
+
+
+    }
+    function huyYeuCauHoTroIntoDatabase(idYeuCauHoTro) {
+        $('#popup-dkpb-supportRequire').modal('hide');
+        var resultReturn = null;
+        $.ajax({
+            url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=HuyYeuCauHoTroIntoDatabase'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "idYeuCauHoTro": "" + idYeuCauHoTro
+            },
+            async: false,
+            success: (function (result) {
+            })
+        });
+        return resultReturn;
+
+
+    }
+    //end.ltvinh add
+
+    function xacNhanDaPhatBieu(idNhanVien) {
+        $("#div_DangKyPhatBieu_NhanVien_" + idNhanVien).remove();
+        idCurrentPhienHop_PhatBieu = "";
+        $.ajax({
+            url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=UpdateDaPhatBieuIntoDatabase'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "idPhienHop": "" + idCurrentPhienHop,
+                "idNhanVien": "" + idNhanVien,
+            },
+            async: false,
+            success: (function (result) {
+
+            })
+        });
+        var tennhanvien = "";
+        $.ajax({
+            url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=GetTenNhanVien'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                "idPhienHop": "" + idCurrentPhienHop,
+                "idNhanVien": "" + idNhanVien,
+            },
+            async: false,
+            success: (function (result) {
+                tennhanvien = result.tennhanvien;
+            })
+        });
+
+        $("#popup-dkpb-confirm").modal("hide");
+
+        //gửi thông tin đến những chủ trì khác 
+        var data = {
+            idNguoiGui: idCurrentNhanVien,
+            tenNguoiGui: tenCurrentNhanVien,
+            idPhienHop: idCurrentPhienHop,
+            idNhanVienDaPhatBieu: idNhanVien,
+            tenNhanVienDaPhatBieu: tennhanvien,
+            loai: 'daPhatBieu'
+        };
+        var idsNhanVienDieuHanh = idsNhanVienChuTri + ',' + idsNhanVienHoTroDieuHanh + ',' + idsNhanVienThamGia + ',' + idsNhanVienHoTro;// ecb-3039 huu minh update ndtai Ecabinet-6630 : them ca nguoi tham du
+        var receivers = idsNhanVienDieuHanh.split(','); // ecb-3039 huu minh update
+        // var receivers = idsNhanVienChuTri.split(',');
+        receivers.push(idNhanVien);
+        send_message(receivers.filter(onlyUnique), data);
+    }
+
+    //ltvinh add
+    function xacNhanDaHoTro(idNhanVien, idPhienHopHoTro, idNhanVienYeuCau) {
+
+        $("#div_YeuCauHoTro_NhanVien_" + idPhienHopHoTro).remove();
+        //  $("#trHoTroPhienHop_" + idPhienHopHoTro).remove();
+        var noiDungHoTro = $('textarea#message').val();
+        var noiDungYeuCauHoTro = '';
+        try {
+            if (noiDungHoTro.length > 0) {
+                $.ajax({
+                    url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=UpdateDaHoTroIntoDatabase'),
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        "idPhienHopHoTro": "" + idPhienHopHoTro,
+                        "idNhanVien": "" + idNhanVien,
+                        "noiDungHoTro": "" + noiDungHoTro
+                    },
+                    async: false,
+                    success: (function (result) {
+                        noiDungYeuCauHoTro = result.noiDungYeuCauHoTro;
+                    })
+                });
+                $("#popup-dkpb-support").modal("hide");
+                //gửi thông tin đến những chủ trì khác 
+                var data = {
+                    idNguoiGui: idCurrentNhanVien,
+                    tenNguoiGui: tenCurrentNhanVien,
+                    idPhienHop: idCurrentPhienHop,
+                    idNhanVienDaHoTro: idNhanVien,
+                    idNhanVienYeuCauHoTro: idNhanVienYeuCau,
+                    noiDung: noiDungHoTro,
+                    noiDungYeuCauHoTro: noiDungYeuCauHoTro,
+                    loai: 'daHoTroXong'
+                };
+                //alert('noiDungYeuCauHoTro:'+noiDungYeuCauHoTro+'\nnoiDungHoTro'+noiDungHoTro);
+                var receiversNhanVienYeuCauHoTro = [];
+                receiversNhanVienYeuCauHoTro.push(idNhanVienYeuCau);
+                send_message(receiversNhanVienYeuCauHoTro, data);
+                loadDsYeuCauHoTro('ChuaDuocHoTro', 'chuaDuocHoTro');
+                loadDsYeuCauHoTro('DaHoTro', 'daHoTro');
+
+            } else {
+                alert("Nội dung hỗ trợ không được để trống");
+            }
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+    }
+    function diemDanh() {
+        var checkHetHanPhienHop = 'False';
+        var checkDiemDanhTrongPhienHop = 'True';
+        if (checkHetHanPhienHop === 'False' && checkDiemDanhTrongPhienHop === 'True' && 'HoatDong' != 'KhongHoatDong') {
+            $.ajax({
+                url: RoutingUtil.EncryptURL('/Pages/ProcessCommandAjax.aspx?Command=AddDiemDanhCaNhanIntoDatabase&idNhanVien=' +
+                    idCurrentNhanVien + '&idLichHop=' + idCurrentPhienHop),
+                type: 'post',
+                dataType: 'json',
+                data: "",
+                success: (function (result) {
+                    var data = {
+                        idNhanVien: idCurrentNhanVien,
+                        soNguoi: result.soNguoi,
+                        khachMoi: result.khachMoi,
+                        idPhienHopNhanVien: result.idPhienHopNhanVien,
+                        idPhienHop: idCurrentPhienHop,
+                        isChecked: result.isChecked,
+                        loai: 'diemDanh'
+                    };
+                    if (result.isChecked === 'True') {
+                        // gửi cả thông tin cho nhân viên hỗ trợ và chủ trì
+                        var idsReceivers = idsNhanVienHoTro + ',' + idsNhanVienThamGia;
+                        if (idsReceivers.startsWith(',')) idsReceivers = idsReceivers.substr(1);
+                        if (idsReceivers != '') {
+                            var arrReceivers = idsReceivers.split(',');
+                            send_message(arrReceivers, data);
+                        }
+                        //alert('Bạn đã điểm danh thành công.');
+                    } else {
+                        //alert('Bạn đã điểm danh rồi.');
+                    }
+                    if (("," + idsNhanVienHoTro + ",").indexOf("," + idCurrentNhanVien + ",") > -1) {
+                        openDialog('diemdanh-popup', RoutingUtil.EncryptURL('/Pages/Frontend/PhienHop/DiemDanh.aspx?idLichHop=63677'));
+                        }
+                    })
+                });
+        }
+        else if (checkDiemDanhTrongPhienHop === 'False') {
+            openDialogThongBao('Chỉ được phép điểm danh khi phiên họp đang diễn ra');
+        }
+        else {
+            openDialogThongBao('Phiên họp đã hết hạn hoặc đã hết thời hạn điểm danh');
+        }
+    }
+    function realTimeDiemDanh(isDiemDanh) {
+        var data = {
+            idNhanVien: idCurrentNhanVien,
+            isChecked: isDiemDanh,
+            loai: 'diemDanh'
+        };
+        try {
+            // gửi cả thông tin cho nhân viên hỗ trợ và chủ trì
+            // initPhienHopJsUtil();
+            //var receiversHoTro = idsNhanVienHoTro.split(',');
+            //send_message(receiversHoTro, data);
+            var objsNhanVienThamGia = getDanhSachThamGia();
+            idsNhanVienThamGia = "";
+            for (var i = 0; i < objsNhanVienThamGia.length; i++) {
+                idsNhanVienThamGia += objsNhanVienThamGia[i].IDNhanVien + ",";
+            }
+            if (idsNhanVienThamGia != "") {
+                idsNhanVienThamGia = idsNhanVienThamGia.substr(0, idsNhanVienThamGia.length - 1);
+            }
+            var receiversidsThamGia = idsNhanVienThamGia.split(',');
+            send_message(receiversidsThamGia, data);
+        } catch (err) {
+            console.log(err.message);
+        }
+
+    }
+    function openDialogSupport(idNhanVien, idHoTroPhienHop, idNhanVienYeuCauHoTro) {
+        $("#popup-dkpb-support").remove();
+        var strPopup_Support = templatePopupSupport;
+        strPopup_Support = strPopup_Support.replace(/contentHolder/g, '');
+        //params dạng ",1,;,2," -> khi convert sẽ thành '1','2'
+        strPopup_Support = strPopup_Support.replace(/functionHolder/g, 'xacNhanDaHoTro' + "('" + idNhanVien + "','" + idHoTroPhienHop + "','" + idNhanVienYeuCauHoTro + "')");
+        $('body').append(strPopup_Support);
+        var temp = $("#popup-dkpb-support");
+        //openModal("popup-dkpb-confirm");
+
+        $("#popup-dkpb-support").modal("show");
+    }
+    function openDialogFinishSupport(contentSupportQuestion, contentSupportAnswer) {
+        $("#popup-dkpb-FinishSupport").remove();
+        var strPopup_FinishSupport = templatePopupFinishSupport;
+        strPopup_FinishSupport = strPopup_FinishSupport.replace(/contentSupportQuestionHolder/g, contentSupportQuestion);
+        strPopup_FinishSupport = strPopup_FinishSupport.replace(/contentSupportAnswerHolder/g, contentSupportAnswer);
+        $('body').append(strPopup_FinishSupport);
+        $("#popup-dkpb-FinishSupport").modal("show");
+    }
+    function openDialogSupportRequire() {
+        $("#popup-dkpb-supportRequire").remove();
+        var strPopup_supportRequire = templatePopupSupportRequire;
+        strPopup_supportRequire = strPopup_supportRequire.replace(/contentHolder/g, '');
+        //params dạng ",1,;,2," -> khi convert sẽ thành '1','2'
+        strPopup_supportRequire = strPopup_supportRequire.replace(/functionHolder/g, 'yeuCauHoTro()');
+        $('body').append(strPopup_supportRequire);
+        var temp = $("#popup-dkpb-supportRequire");
+        //openModal("popup-dkpb-confirm");
+
+        $("#popup-dkpb-supportRequire").modal("show");
+        $('textarea#locateYeuCauHoTro').val(diaDiemYeuCauHoTro);
+    }
+    //end.ltvinh add
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        //bỏ tự động postback của các thẻ button
+        $('button.btn').click(function (e) {
+            e.preventDefault();
+        });
+        //gửi realtime kết quả biểu quyết nếu có
+        if ('0' != '0') SendMessageGuiYKien('0');
+    });
+
+    function lichHopTruocGanNhat(idCurrentPhienHop) {
+        $.ajax({
+            url: '/Pages/FormCommon/ProcessAjaxRequest.aspx?Command=lichHopTruocGanNhat',
+            type: 'post',
+            dataType: 'html',
+            data: {
+                "idCurrentPhienHop": idCurrentPhienHop
+            },
+            success: (function (html) {
+                var jsonObject = JSON.parse(html);
+                if (jsonObject.RedirectURL != '#') window.location.href = jsonObject.RedirectURL;
+                else openDialogThongBao("Không tìm thấy lịch họp phù hợp!");
+            })
+        });
+    }
+
+    function lichHopSauGanNhat(idCurrentPhienHop) {
+        $.ajax({
+            url: '/Pages/FormCommon/ProcessAjaxRequest.aspx?Command=lichHopSauGanNhat',
+            type: 'post',
+            dataType: 'html',
+            data: {
+                "idCurrentPhienHop": idCurrentPhienHop
+            },
+            success: (function (html) {
+                var jsonObject = JSON.parse(html);
+                if (jsonObject.RedirectURL != '#') window.location.href = jsonObject.RedirectURL;
+                else openDialogThongBao("Không tìm thấy lịch họp phù hợp!");
+            })
+        });
+    }
+</script>
+
+<div class="header-info">
+    <ul class="tabs">
+        
+        <li class="active" id="liNoiDungHop"><a href="/Pages/Frontend/PhienHop/PhienHop_ThongTin.aspx?IDLichHop=63677">Chương trình họp </a></li>
+        
+            <li id="liTaiLieuHop"><a href="/Pages/Frontend/PhienHop/PhienHop_TaiLieu.aspx?IDLichHop=63677">Tài liệu họp  </a></li>
+        
+        
+            <li id="liGhiChuCaNhan"><a href="/Pages/Frontend/PhienHop/PhienHop_GhiChu.aspx?IDLichHop=63677">Ghi chú cá nhân</a></li>
+        
+        
+        
+        
+            <li id="liThongTinDieuHanh"><a href="/Pages/Frontend/PhienHop/PhienHop_DieuHanh.aspx?IDLichHop=63677">Thông tin điều hành</a></li>
+        
+
+
+
+        
+            <li id="liLayYKien"><a href="/Pages/Frontend/PhienHop/PhienHop_LayYKien.aspx?IDLichHop=63677">Lấy ý kiến biểu quyết</a></li>
+        
+        
+        
+        
+            <li><a href="/Pages/Frontend/PhienHop/PhienHop_KetLuan.aspx?IDLichHop=63677">Kết luận cuộc  họp</a></li>
+        
+
+    </ul>
+    <div style="position: absolute; right: 20px; top: 24px;">
+        <a href="javascript:lichHopTruocGanNhat('63677')" class="btn btn-primary" title="Lịch họp trước gần nhất"><i class="fa fa-chevron-left"></i></a>
+        <a href="javascript:lichHopSauGanNhat('63677')" class="btn btn-primary" title="Lịch họp sau gần nhất"><i class="fa fa-chevron-right"></i></a>
+    </div>
+    <div class="box-right" style="width: auto; top: 24px; right: 100px; position: absolute; margin-top: 0px;" id="boxBtnBieuQuyetVaDangKyPhatBieu">
+        
+        <div class="actions">
+            <a href="/Pages/Frontend/LayYKien/PhienHop_SuaLayYKien.aspx?IDLichHop=63677&ID=17985" id="phlBieuQuyet" class="btn btn-add btn-vote" style=""><span class="icon fa fa-hand-o-up"></span>Biểu quyết</a>
+            
+            <!--ltvinh add aa-->
+        </div>
+
+    </div>
+</div>
+
+<div class="fixed-icon" style="z-index: 9999; top: 30%;">
+    <div class="nav-icon" data-id="#popup-extension" style="background: #3b8be4;">
+        <span class="-ap icon icon-extension"></span>
+    </div>
+    <div class="box-extension" id="popup-extension">
+        <div class="head" onclick="$('#popup-extension').removeClass('show');"><span class="-ap icon icon-extension"></span>Tiện ích </div>
+        <div class="box">
+            <ul class="list-action">
+                <li>
+                    
+                </li>
+                <li>
+                    
+                        <a id="buttonYeuCauHoTro" href="javascript:openDialogSupportRequire()"><span class="icon fa fa-question"></span>Yêu cầu hỗ trợ</a>
+                    
+                </li>
+            </ul>
+            <div style="padding-bottom: 1em">
+                <a id="DanhSachYeuCauHoTro" style="padding-left: 30px;" href="/Pages/FormCommon/DanhSachYeuCauHoTro.aspx">Các yêu cầu hỗ trợ đã gửi
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="diemdanh-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width: 1200px; width: 100%;">
+    </div>
+</div>
+
+<div id="dangkyphatbieu-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width: 600px; width: 100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Đăng ký phát biểu
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="profile-info-row">
+                    <div class="key">
+                        Nội dung đăng ký phát biểu: 
+                        <!--ECABINET-1876 tanduong add -->
+                        
+                        <span class="red">*</span>
+                        
+                        <div class="value" style="display: none">
+                            <input id="khongNhapNoiDungDangKyPhatBieu" name="khongNhapNoiDungDangKyPhatBieu" value="" type="text" />
+                        </div>
+                    </div>
+                    <div class="value">
+                        <textarea id="noiDungDangKyPhatBieu" name="noiDungDangKyPhatBieu" rows="6" autofocus cols="65" class="validate[required]" placeholder="Nhập nội dung đăng ký phát biểu"></textarea>
+                    </div>
+                </div>
+                <!--ECABINET-1876 tanduong add -->
+                
+                <!--END ECABINET-1876 tanduong add -->
+            </div>
+            <div class="modal-footer">
+                <input type="button" id="btnGuiDangKyPhatBieu" class="btn btn-primary" style="display: none" onclick="DangKyPhatBieuJsUtil.GuiDangKyPhatBieu()" value="Gửi" />
+                <input type="button" id="btnCapNhatDangKyPhatBieu" class="btn btn-primary" style="display: none" onclick="DangKyPhatBieuJsUtil.GuiCapNhatDangKyPhatBieu()" value="Cập nhật" />
+                <input type="button" id="btnHuyDangKyPhatBieu" class="btn btn-primary" style="display: none" onclick="DangKyPhatBieuJsUtil.GuiHuyDangKyPhatBieu()" value="Hủy đăng ký" />
+                <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Thoát" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(".nav-icon").click(function () {
+        $($(this).attr("data-id")).toggleClass("show");
+    });
+    //$(".close").click(function(){
+    //    $(this).parent().parent().removeClass("show");
+    //});
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("ul.tabs li").each(function () {
+            if ($(this).find('a').attr('href').indexOf(window.location.pathname) > -1) {
+                $(this).attr('class', 'active');
+            }
+            else {
+                $(this).attr('class', '');
+            }
+        });
+    });
+</script>
+<script>
+    //các script liên quan mở, đóng dialog chứa Iframe
+    function hiddenDialog(idDialog)//chỉ hidden đi còn vẫn chứa thông tin bên trong
+    {
+        $('#' + idDialog).modal('hide');
+    }
+    function closeDialog(idDialog)//đóng và xóa hẳn thông tin
+    {
+        hiddenDialog(idDialog);
+        $("#" + idDialog + " .modal-dialog").html('');
+    }
+
+    function closeDialogAndRefresh(idDialog)//đóng và xóa hẳn thông tin, tải lại trang
+    {
+        closeDialog(idDialog);
+        window.location = window.location.href;
+        //location.href = location.href.replace('#', '');
+    }
+
+    function openDialog(idDialog, src) {
+        $("#" + idDialog).modal("show");
+        //add iframe chứa nội dung
+        $("#" + idDialog + " .modal-dialog").html('<div class="modal-content"><iframe style="width:100%" src="' + src + '" id="iFrame' + idDialog + '" onload="resizeIFrameToFitContent(this)"/></div>');
+    }
+
+    var timerSetSizeIFrame;
+    function resizeIFrameToFitContent(iFrame) {//chỉnh sửa lại kích thước cho phù hợp
+        timerSetSizeIFrame = setInterval(function () {
+            if ($(iFrame).contents().find('body').outerHeight() > 0) {
+                $(iFrame).css('height', $(iFrame).contents().find('body').outerHeight());
+                //$(iFrame).css('width', $(iFrame).contents().find('body').outerWidth());
+                clearInterval(timerSetSizeIFrame);
+            }
+        }, 100);
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    var initPhienHopJsHelper = function () {
+
+        window.PhienHopJsHelper = {
+
+            PhienHopId: '63677',
+            CurrentNhanVienId: '107471',
+            CurrentNhanVienHoVaTen: 'quantrihieunang',
+            DisableDangKyPhatBieu: false,
+
+            GetNhanVienChuTriIdsString: function () {
+                return idsNhanVienChuTri;
+            },
+
+            GetNhanVienChuTriIds: function () {
+
+                var self = window.PhienHopJsHelper;
+
+                try {
+                    nhanVienChuTriIds = self.GetNhanVienChuTriIdsString().split(',');
+                    return nhanVienChuTriIds;
+                } catch (ex) {
+                    window.PhatBieuJsHelper.HandleException(ex);
+                }
+            },
+
+            IsChuTriPhienHop: function () {
+
+                var self = window.PhienHopJsHelper;
+
+                try {
+                    if (self.GetNhanVienChuTriIds().indexOf(self.CurrentNhanVienId) > -1)
+                        return true;;
+                    return false;
+                } catch (ex) {
+                    window.PhatBieuJsHelper.HandleException(ex);
+                }
+            },
+
+            //ecb-3039 huu minh add
+
+            GetNhanVienHoTroDieuHanhIdsString: function () {
+                return idsNhanVienHoTroDieuHanh;
+            },
+
+            GetNhanVienHoTroDieuHanhIds: function () {
+
+                var self = window.PhienHopJsHelper;
+
+                try {
+                    nhanVienHoTroDieuHanhIds = self.GetNhanVienHoTroDieuHanhIdsString().split(',');
+                    return nhanVienHoTroDieuHanhIds;
+                } catch (ex) {
+                    window.PhatBieuJsHelper.HandleException(ex);
+                }
+            },
+
+            IsHoTroDieuHanhPhienHop: function () {
+
+                var self = window.PhienHopJsHelper;
+
+                try {
+                    if (self.GetNhanVienHoTroDieuHanhIds().indexOf(self.CurrentNhanVienId) > -1)
+                        return true;;
+                    return false;
+                } catch (ex) {
+                    window.PhatBieuJsHelper.HandleException(ex);
+                }
+            },
+
+            HandleSuggestRefreshPhatBieuUiEvt: function (notificationMessage) {
+                var self = window.PhienHopJsHelper;
+
+                self.RefreshDangKyPhatBieuButton();
+            },
+
+            UpdateDangKyPhatBieuButton: function (disableDangKyPhatBieu) {
+                var dangKyPhatBieuButton = $("#buttonDangKyPhatBieu");
+
+                if (disableDangKyPhatBieu) {
+                    dangKyPhatBieuButton.css("background", "#f9b6a1");
+                    dangKyPhatBieuButton.attr("disabled", true);
+                } else {
+                    dangKyPhatBieuButton.css("background", "#4CAF50");
+                    dangKyPhatBieuButton.attr("disabled", false);
+                }
+            },
+
+            RefreshDangKyPhatBieuButton: function () {
+                var self = window.PhienHopJsHelper;
+                self.UpdateDangKyPhatBieuButton(false);
+                $.getJSON(RoutingUtil.EncryptURL('/Pages/FormCommon/ProcessAjaxRequest.aspx?Command=GetDangKyPhatBieusViewModel&PhienHopId=' +
+                    self.PhienHopId + '&nhanVienId=' + self.CurrentNhanVienId),
+                    function (dangKyPhatBieusViewModel) {
+                        var phatBieusDaDangKyViewModel = dangKyPhatBieusViewModel.PhatBieusDaDangKyViewModel;
+                        self.DisableDangKyPhatBieu = phatBieusDaDangKyViewModel.length > 0;
+
+                        self.UpdateDangKyPhatBieuButton(
+                            self.DisableDangKyPhatBieu);
+                    });
+            },
+
+            DangKyPhatBieu: function (noiDungDangKyPhatBieu) {
+                var self = window.PhienHopJsHelper;
+                try {
+                    $.ajax({
+                        url: RoutingUtil.EncryptURL('/Pages/FormCommon/ProcessAjaxRequest.aspx?Command=checkTrangThaiDiemDanh'),
+                        type: 'post',
+                        dataType: 'html',
+                        data: {
+                            "idPhienHop": self.PhienHopId,
+                            "idNhanVien": self.CurrentNhanVienId,
+                        },
+                        success: (function (html) {
+                            var jsonObject = JSON.parse(html);
+                            if (jsonObject[0].TrangThaiDiemDanh == "True") {
+                                // đã điểm danh
+                                if (!window.PhienHopJsHelper.DisableDangKyPhatBieu) {
+                                    var eCabinetJsonResult = self.AddDangKyPhatBieuIntoDatabase(noiDungDangKyPhatBieu);
+                                    if (!eCabinetJsonResult.Result) {
+                                        alert(eCabinetJsonResult.ErrorMessage);
+                                        return;
+                                    }
+                                    self.UpdateDangKyPhatBieuButton(true);
+
+                                    PhatBieuJsHelper.ShowThongBaoPhatBieu(namePrefix + "đã đăng ký phát biểu!");
+
+                                    var senderNhanVienStrId = self.CurrentNhanVienId;
+                                    var nhanVienChuTriIds = self.GetNhanVienChuTriIds();
+                                    nhanVienPhatBieuId = self.CurrentNhanVienId;
+                                    var noiDungThongBao = namePrefix + self.CurrentNhanVienHoVaTen + ' đăng ký phát biểu';
+
+                                    window.PhatBieuJsHelper.PhatBieuNotification(senderNhanVienStrId, nhanVienChuTriIds, nhanVienPhatBieuId, PhatBieuJsHelper.LoaiEvtDangKyPhatBieu, noiDungThongBao);
+                                    var recvNhanVienIds = nhanVienChuTriIds;
+                                    recvNhanVienIds.push(self.CurrentNhanVienId);
+                                    window.PhatBieuJsHelper.PhatBieuNotification(senderNhanVienStrId, recvNhanVienIds, nhanVienPhatBieuId, PhatBieuJsHelper.LoaiEvtSuggestRefreshPhatBieuUi, eCabinetJsonResult.ReturnMessage);
+
+                                } else {
+                                    //đã đăng ký phát biểu
+                                    PhatBieuJsHelper.ShowThongBaoPhatBieu(namePrefix + "đã đăng ký phát biểu! Vui lòng đợi!");
+                                }
+                            }
+                            else {
+                                //đã đăng ký phát biểu
+                                PhatBieuJsHelper.ShowThongBaoPhatBieu(namePrefix + "chưa được điểm danh! Vui lòng đợi");
+                            }
+                        })
+                    });
+                } catch (ex) {
+                    window.PhatBieuJsHelper.HandleException(ex);
+                }
+            },
+
+            //trả về id của PhienHop_PhatBieu
+            AddDangKyPhatBieuIntoDatabase: function (noiDungDangKyPhatBieu) {
+                var self = window.PhienHopJsHelper;
+
+                var returnECabinetJsonResult;
+                $.ajax({
+                    url: RoutingUtil.EncryptURL('/Pages/processCommandAjax.aspx?Command=AddDangKyPhatBieuIntoDatabase'),
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        "idPhienHop": "" + self.PhienHopId,
+                        "idNhanVien": "" + self.CurrentNhanVienId,
+                        "noiDungDangKyPhatBieu": noiDungDangKyPhatBieu,
+                    },
+                    async: false,
+                    success: (function (eCabinetJsonResult) {
+                        returnECabinetJsonResult = eCabinetJsonResult;
+                    })
+                });
+                return returnECabinetJsonResult;
+            },
+        };
+
+
+    };
+</script>
+
+
+
+
+
+        
+    
+
+<script type="text/javascript" charset="utf-8" src="/style/custom/js/uploadfile/main.js"></script>
+<!-- Thư viện datetime -->
+<link href="/style/custom/datetimepicker/jquery-ui-timepicker-addon.css" type="text/css" media="all" rel="stylesheet">
+<link href="/style/custom/datetimepicker/jquery-ui.css" type="text/css" media="all" rel="stylesheet">
+<script type="text/javascript" src="/style/custom/datetimepicker/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/style/custom/datetimepicker/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="/style/custom/datetimepicker/jquery-ui-sliderAccess.js"></script>
+<script type="text/javascript" src="/style/custom/datetimepicker/api_buttons.js"></script>
+<script type="text/javascript" src="/style/custom/datetimepicker/custom.js"></script>
+
+<!-- Thư viện validate -->
+<link rel="stylesheet" href="/style/custom/validation/validationEngine.jquery.css" type="text/css" />
+<script src="/style/custom/validation/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+<script src="/style/custom/validation/jquery.validationEngine-vi.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/style/thietke/backend/assets/jstree/jstree.min.js"></script>
+<script type="text/javascript" src="/style/thietke/backend/assets/highchart/highcharts.js"></script>
+
+<script>
+    {
+        var currentTimeByMilisecond = Date.now();
+        //tránh cache
+        $.getScript("/style/custom/js/uploadfile/main.js?version=4" + currentTimeByMilisecond, function (data, textStatus, jqxhr) {
+            if (jqxhr.status == 200) {
+            }
+        });
+    }
+
+</script>
+<script>
+    var clientIDFileExists = 'ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_listIDFilesSoDo';//ltvinh add
+    var clientIDFileYKienKhacExists = 'ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_listIDFilesYkienKhac';//ltvinh add
+    var tongSoCauHoi = 1;//ltvinh add
+    var soCauDaTraLoi = 0;
+    var isAnMotSoThongTinBieuQuyet = '';
+    $(document).ready(function () {
+        //bỏ tự động postback của các thẻ button
+        $('button').click(function (e) {
+            e.preventDefault();
+        });
+        if ('0' != '0') SendMessageGuiYKien('0');
+        try {
+            if (isAnMotSoThongTinBieuQuyet != "1") {
+                document.getElementById('plhThoiDiemPhatHanh').style.display = 'block'
+            }
+        } catch (error) {
+            console.error("Error in displaying 'plhThoiDiemPhatHanh':", error);
+        };
+        renderDanhSachFileTinTuc();
+        renderDanhSachFileTinTuc_v3(1)
+    });
+
+    var timerSetSizeIFrame;
+    function resizeIframe() {
+        timerSetSizeIFrame = setInterval(function () {
+            if ($('body').outerHeight() > 0) {
+                parent.$("#iFramebieuquyet-popup").css('height', $('body').outerHeight());
+                clearInterval(timerSetSizeIFrame);
+            }
+        }, 100);
+    }
+</script>
+
+<script>
+    function chonTraLoi(radio) {
+
+        debugger;
+        element = radio.parentElement.parentElement.parentElement.getElementsByClassName("txtYKien")[0].getElementsByTagName("textarea")[0];
+        if (radio.className.indexOf("choYKien") > -1) {
+            element.style.display = "initial";
+
+            $(".box-upload").show();
+            $(".box-upload .upload").show();
+        }
+        else {
+            element.style.display = "none";
+            element.value = "";
+            $(".box-upload .upload").hide();
+        }
+        var $checkboxes = $(".check");
+        soCauDaTraLoi = $checkboxes.filter(':checked').length;
+        var phanTramTraLoi = Math.round(soCauDaTraLoi / tongSoCauHoi * 100);
+        $("#TongSoPercent").text(phanTramTraLoi + "%");
+        $("#TongSo").text(soCauDaTraLoi + '/' + tongSoCauHoi);
+        $("#TongSoPercentBar").css('width', phanTramTraLoi + '%');
+
+    }
+
+    function xacNhan() {
+        ketQua = "";
+        listIdCauHoi = $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfDsIDCauHoi").val();
+        if (listIdCauHoi != '') {
+            arrIdCauHoi = listIdCauHoi.split(',');
+            for (i = 0; i < arrIdCauHoi.length; i++) {
+                value = $("input[name='" + arrIdCauHoi[i] + "']:checked").val();
+                if (typeof value == "undefined") {
+                    alert("Chưa trả lời hết các câu hỏi!");
+                    return false;
+                }
+                else {
+                    //txtarea = $("input[name='" + arrIdCauHoi[i] + "']:checked").parent('div').find('textarea');
+                    txtarea = $("input[name='" + arrIdCauHoi[i] + "']:checked").parent('div').parent('div').parent('div').find('div.txtYKien:eq(0)').find('textarea');
+                    //var inputElement = $("input[name='" + arrIdCauHoi[i] + "']");
+                    //if (inputElement[inputElement.length - 1].checked && txtarea.val().trim() == '') {
+                    //    alert("Ý kiến khác không được để trống!");
+                    //    return false;
+                    //}
+                    var idsfile = $("#fileHiddenYKienKhac_" + arrIdCauHoi[i]).val();
+
+                    if (txtarea.val().trim() != '') ketQua += arrIdCauHoi[i] + '-' + value + '-' + idsfile + '-' + txtarea.val().trim() + '#';
+                    else ketQua += arrIdCauHoi[i] + '-' + value + '-null-null#';
+                }
+            }
+            ketQua = ketQua.substr(0, ketQua.length - 1);
+            $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfKetQuaBinhChon").val(ketQua);
+            var maKH = "Default";
+            return maKH == "LAN_HDND" || confirm("Bạn có chắc chắn hành động này?");
+        }
+        else return false;
+    }
+
+    function luuNhap() {
+        debugger;
+        ketQua = "";
+        listIdCauHoi = $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfDsIDCauHoi").val();
+        if (listIdCauHoi != '') {
+            arrIdCauHoi = listIdCauHoi.split(',');
+            for (i = 0; i < arrIdCauHoi.length; i++) {
+                value = $("input[name='" + arrIdCauHoi[i] + "']:checked").val();
+                //txtarea = $("input[name='" + arrIdCauHoi[i] + "']:checked").parent('div').find('textarea');
+                txtarea = $("input[name='" + arrIdCauHoi[i] + "']:checked").parent('div').parent('div').parent('div').find('div.txtYKien:eq(0)').find('textarea');
+                var idsfile = $("#fileHiddenYKienKhac_" + arrIdCauHoi[i]).val();
+                if (txtarea.val() !== undefined) {
+                    if (txtarea.val().trim() != '')
+                        ketQua += arrIdCauHoi[i] + '-' + value + '-' + idsfile + '-' + txtarea.val().trim() + '#';
+                    else ketQua += arrIdCauHoi[i] + '-' + value + '-null-null#';
+                }
+            }
+            ketQua = ketQua.substr(0, ketQua.length - 1);
+            $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfKetQuaBinhChon").val(ketQua);
+            //return confirm("Bạn có chắc chắn hành động này?");
+            return true;
+        }
+        else return false;
+    }
+
+    
+
+    function xemChiTietVanBan(idVB) {
+        $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfIDVanBan").val(idVB);
+        $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_btnXemVanBan").click();
+    }
+    var idHiddenListIDNhomTaiLieuHop = 'ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_listIDNhomTaiLieuHop';
+</script>
+
+<style>
+    body {
+        overflow-y: auto;
+    }
+</style>
+
+<!-- style biểu quyết-->
+<style>
+    .row {
+        margin-bottom: 5px;
+    }
+
+    .btn-success {
+        margin-right: 3px;
+    }
+
+    .list-bieuquyet-question .title {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .list-bieuquyet-question .dsbquyet {
+        border-radius: 3px;
+        border: 1px solid #ddd;
+    }
+
+    .list-bieuquyet-question .item:hover {
+        background: #f6f7f8;
+    }
+
+    .list-bieuquyet-question .item {
+        border-bottom: 1px solid #ddd;
+    }
+
+        .list-bieuquyet-question .item .check-action .name {
+            padding: 15px 20px;
+            display: block;
+            padding-left: 40px;
+        }
+
+    .list-bieuquyet-question .check-action {
+        display: block;
+    }
+
+        .list-bieuquyet-question .check-action .name:before {
+            width: 24px;
+            height: 24px;
+            top: 10px;
+            line-height: 22px;
+            left: 10px;
+        }
+
+    .list-bieuquyet-question {
+        margin-bottom: 20px;
+    }
+
+    .noborder {
+        border: none;
+        font-size: 14px;
+    }
+
+    #ui-datepicker-div {
+        z-index: 99 !important;
+    }
+
+    .box-get-vote .progress-box {
+        z-index: 2;
+    }
+
+    #chonchedoky-popup label {
+        padding-left: 5px;
+        padding-bottom: 10px;
+    }
+</style>
+<div style="display: none">
+    <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$listIDFilesSoDo" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_listIDFilesSoDo" value=",," />
+    <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$listIDFilesSoDoBackup" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_listIDFilesSoDoBackup" value=",," />
+    <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$listIDFilesYkienKhac" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_listIDFilesYkienKhac" />
+    <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$listIDFilesYKienKhacBackup" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_listIDFilesYKienKhacBackup" />
+    <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$hdfBase64DataOutput" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfBase64DataOutput" />
+    <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$hdfIDVanBan" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfIDVanBan" />
+    <input type="submit" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$btnXemVanBan" value="" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_btnXemVanBan" />
+</div>
+
+<div class="main-wrapper" style="padding: 0; margin: 20px;">
+    <div class="box-get-vote">
+        <div class="title-main">Lấy ý kiến</div>
+        <span style="color: red">
+            <span id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_resultMessageLabel" Display="Dynamic"></span></span><br />
+        
+
+
+            <div class="box-legend" id="box-legend">
+                <div class="legend-title">
+                    <span>Thông tin chung</span>
+                </div>
+                <div class="body">
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-2 col-xs-12 control-label label-text">
+                                Tiêu đề chung:
+                            </div>
+                            <div class="col-sm-10 col-xs-12 input">
+                                <span id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_lblTieuDe" class="text" style="margin-top: 7px;">PerfTest Bieu quyet 20251025</span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group" id="plhThoiDiemPhatHanh" style="display: none">
+                            <div class="col-sm-2 col-xs-12 control-label label-text">
+                                Thời gian phát hành: 
+                            </div>
+                            <div class="col-sm-4 col-xs-12 input">
+                                <div class="input-icon">
+                                    <span id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_lblThoiGianPhatHanh" class="form-control noborder">25/10/2025 08:14</span>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-2 col-xs-12 control-label label-text">
+                                Thời gian hết hạn: 
+                            </div>
+                            <div class="col-sm-4 col-xs-12 input">
+                                <div class="input-icon">
+                                    <span id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_lblThoiGianHetHan" class="form-control noborder">31/10/2025 08:55</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2 col-xs-12 control-label label-text">
+                                File đính kèm:
+                            </div>
+                            <div class="col-sm-10 col-xs-12 input">
+                                <div class="value" id="divTaiLieuLienQuan">
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          
+                    </div>
+                </div>
+            </div>
+            <div class="box-legend" id="boxNoiDung">
+
+                <div class="legend-title">
+                    <span>Nội dung </span>
+                </div>
+                <div class="body">
+                    <div class="form">
+                        <div class="form-group">
+                            
+
+                            <div class="list-bieuquyet-question">
+                                <div class="bq-title"><strong>Mặt trời lặn ở hướng nào</strong></div>
+                                <div class="dsbquyet">
+                                    
+                                    <div class="item">
+                                        <div class="check-action">
+                                            <input type="radio" name="33847" value="87139" onchange="chonTraLoi(this);" class="check">
+                                            <div class="name">Đông</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="item">
+                                        <div class="check-action">
+                                            <input type="radio" name="33847" value="87140" onchange="chonTraLoi(this);" class="check">
+                                            <div class="name">Tây</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="item">
+                                        <div class="check-action">
+                                            <input type="radio" name="33847" value="87141" onchange="chonTraLoi(this);" class="check">
+                                            <div class="name">Nam</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="item">
+                                        <div class="check-action">
+                                            <input type="radio" name="33847" value="87142" onchange="chonTraLoi(this);" class="check">
+                                            <div class="name">Bắc</div>
+                                        </div>
+                                    </div>
+                                    <div class='item'><div class='check-action'></div></div>
+                                    <div class="item -ykk txtYKien">
+                                        
+                                        <textarea class="form-control" placeholder="Ý kiến khác" style='display: none;' id="txtYKien_33847"></textarea>
+                                        <div class="box-upload" style='display: none;'>
+                                            <div class="upload">
+                                                <input type="hidden" id="fileHiddenYKienKhac_33847" value="" />
+                                                <a href="#"><span class="fa fa-cloud-upload"></span><span class="txt">File đính kèm</span></a>
+                                                <input type="file" multiple="multiple" id="fileYKienKhac_33847" class="form-control" onchange="fileChange_YKienKhac(33847)">
+                                            </div>
+                                            <div id="list_fileYKienKhac_33847" class="divBtnThaoTacFile" style="margin-top: 5px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                    <div class="actions" style="margin-top: 40px;">
+
+                        <input type="submit" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$btnXacNhanLuuNhap" value="Lưu nháp" onclick="return luuNhap();" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_btnXacNhanLuuNhap" class="btn btn-primary" />&nbsp;
+                        <input type="submit" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$btnXacNhan" value="Gửi ý kiến" onclick="return xacNhan();" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_btnXacNhan" class="btn btn-success" />&nbsp;
+                   
+                    </div>
+                </div>
+            </div>
+            <div class="progress-box">
+                <div class="info">
+                    <span class="text">Tổng số câu hỏi:</span>
+                    <span class="number" id="TongSo"></span>
+                </div>
+                <div class="progressbar" style="text-align: left">
+                    <div class="bar">
+                        <span style="width: 0%" id="TongSoPercentBar"></span>
+                    </div>
+                    <span class="percent" id="TongSoPercent"><strong>0%</strong> hoàn thành</span>
+
+                </div>
+            </div>
+
+        
+
+        
+
+        
+    </div>
+</div>
+
+<div style="display: none;">
+    <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$hdfKetQuaBinhChon" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfKetQuaBinhChon" />
+    <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$hdfDsIDCauHoi" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfDsIDCauHoi" value="33847" />
+    <input type="submit" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$btnKy" value="" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_btnKy" />
+</div>
+
+<div id="kqbieuquyet-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width: 800px; width: 100%;">
+    </div>
+</div>
+
+<div id="chonchedoky-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="max-width: 800px; width: 100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="hiddenDialog('chonchedoky-popup')">&times;</button>
+                <h4 class="modal-title">Chọn chế độ ký</h4>
+                <input type="hidden" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$LoaiKySo" id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_LoaiKySo" />
+            </div>
+
+            <div class="modal-body">
+                <div class="profile-info-row">
+                    <table id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_rblChonCheDoKy">
+	<tr>
+		<td><input id="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_rblChonCheDoKy_0" type="radio" name="ctl00$ctl00$MainContentPlaceHolder$webpartZone1$TESTSuaLayYKien$rblChonCheDoKy" value="PKI_TEST" /><label for="ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_rblChonCheDoKy_0">Ký số bằng Sim Mobile PKI–TEST</label></td>
+	</tr>
+</table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="button-syso" onclick="Ky()">Ký</button>
+                <button class="btn btn-default" onclick="hiddenDialog('chonchedoky-popup');">Huỷ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var $checkboxes = $(".check");
+        soCauDaTraLoi = $checkboxes.filter(':checked').length;
+        var phanTramTraLoi = Math.round(soCauDaTraLoi / tongSoCauHoi * 100);
+        $("#TongSoPercent").text(phanTramTraLoi + "%");
+        $("#TongSo").text(soCauDaTraLoi + '/' + tongSoCauHoi);
+        $("#TongSoPercentBar").css('width', phanTramTraLoi + '%');
+    });
+    //các script liên quan mở, đóng dialog chứa Iframe
+    function hiddenDialog(idDialog)//chỉ hidden đi còn vẫn chứa thông tin bên trong
+    {
+        $('#' + idDialog).modal('hide');
+    }
+    function closeDialog(idDialog)//đóng và xóa hẳn thông tin
+    {
+        hiddenDialog(idDialog);
+        $("#" + idDialog + " .modal-dialog").html('');
+    }
+
+    function closeDialogAndRefresh(idDialog)//đóng và xóa hẳn thông tin, tải lại trang
+    {
+        closeDialog(idDialog);
+        window.location = window.location.href;
+        //location.href = location.href.replace('#', '');
+    }
+
+    function openDialog(idDialog, src) {
+        $("#" + idDialog).modal("show");
+        //add iframe chứa nội dung
+        $("#" + idDialog + " .modal-dialog").html('<div class="modal-content"><iframe style="width:100%" src="' + src + '" id="iFrame' + idDialog + '" onload="resizeIFrameToFitContent(this)"/></div>');
+    }
+
+    var timerSetSizeIFrame;
+    function resizeIFrameToFitContent(iFrame) {//chỉnh sửa lại kích thước cho phù hợp
+        timerSetSizeIFrame = setInterval(function () {
+            if ($(iFrame).contents().find('body').outerHeight() > 0) {
+                $(iFrame).css('height', $(iFrame).contents().find('body').outerHeight());
+                //$(iFrame).css('width', $(iFrame).contents().find('body').outerWidth());
+                clearInterval(timerSetSizeIFrame);
+            }
+        }, 100);
+    }
+</script>
+
+<!--Ký số token-->
+
+<script type="text/javascript" src="/style/custom/js/kysotoken/TEST-plugin.js?ver=49"></script>
+<script type="text/javascript" src="/style/custom/js/kysotoken/KySoToken.js?ver=49"></script>
+
+<script>
+    //$ = jQuery.noConflict();
+    var loaiKySo = 'PKI_TEST,';
+    //PreparePlugin('PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PExpY2Vuc2U+PFBoYW5NZW0+Vk5QVC1DQSBQbHVnaW48L1BoYW5NZW0+PE5ndW9pQ2FwPlZOUFQgSVQ8L05ndW9pQ2FwPjxEb25WaUR1b2NDYXA+ZWNhYmluZXQudm4sZWNhYmluZXQudm5wdC52bjwvRG9uVmlEdW9jQ2FwPjxOZ2F5QmF0RGF1PjA4LzE5LzIwMjUgMDA6MDA6MDA8L05nYXlCYXREYXU+PE5nYXlLZXRUaHVjPjA4LzE5LzIwMjggMjM6NTk6NTk8L05nYXlLZXRUaHVjPjxNYWNPUz4xPC9NYWNPUz48U2lnbmF0dXJlIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjIj48U2lnbmVkSW5mbz48Q2Fub25pY2FsaXphdGlvbk1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLXhtbC1jMTRuLTIwMDEwMzE1IiAvPjxTaWduYXR1cmVNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjcnNhLXNoYTEiIC8+PFJlZmVyZW5jZSBVUkk9IiI+PFRyYW5zZm9ybXM+PFRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNlbnZlbG9wZWQtc2lnbmF0dXJlIiAvPjwvVHJhbnNmb3Jtcz48RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiIC8+PERpZ2VzdFZhbHVlPlByWWhDV2JkeTdLSGsvZVVvbm50WXArZmFYTT08L0RpZ2VzdFZhbHVlPjwvUmVmZXJlbmNlPjwvU2lnbmVkSW5mbz48U2lnbmF0dXJlVmFsdWU+QVp1QktQOUJPNXcwKzZpY01BT2t3T3RyaFEvK0puTTlwVngvMjFWVTRyRjhjalJmb2piaGZ5OGFEdUlneUtaUUZ6REoyU08wRjRxRnBZSDZ2dDNObDEvUU42NnBqTGFlWitEYTlrWGQybkQrM0xRTFJhcFIzY0lYREsrL1FVSEtwd2lsQVdkUEdacVlqa3EwcGp5NWozQmU4ZXF5cnVwb3NueW9NaVhEbUQ1NDJHemJkSzJYU0VxQWoveHpTYXNxU3NMMkhvdEI5Sml1eC8raUs2MzkrMERNNUN0KzAyalZGVUZnOUV3RWszcDNvUDJLTW1ETytwSkgzSloybE9nMDVqTjBYeXg3OG45ejhpZTh6aENYNnNQdGxXUUdzQnVoZHNVNUtUbDBnbXJXWUljMUhuMUlSTFhJODduMVQ3djQ5Q3kvMlNjNkdmbHlVVkU5OFVSZE5RPT08L1NpZ25hdHVyZVZhbHVlPjxLZXlJbmZvPjxLZXlWYWx1ZT48UlNBS2V5VmFsdWU+PE1vZHVsdXM+cDI4Y1VUbm9YRzlVbzc1NHBqd2RaR0g4bVg0VlpRa0F5a29xaHNBcHZnWVB5VVFFa0JFNmQ5cXNaTDM2R3YxakZaMXZLaG9uSTZmTEV4VnJiSERtOStEZUtlelZJWnFRdkxpczYzZzNocm16UnQrYy9vQXphNk9ScWVCVlZtUGhDWE93L0pEcnd4SDNDTFpybFIxWEd4bXNxbGppNytWTTBwQy9DSWtpZy81dEZ1L1BDdVRjVFkvTmYveWZtTVQ5N05peTlObkZOWDVjUXFERVk1bFNDRG9veTBocFNDbmNZUXN1TGNRSkFmWXp2enc5b29PakZqWU9Vdm1jZW1EQzEvMEVFOWRiV2xXZXRmblZOYjhzem9xc0xCckxBREIxQ2hTZm5sOW9RRnpHUVZhMFJpSjl4T3dQb0oyNWpRZFZpbUUxOHZUTVpXWnRtR05TMnIrK09RPT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+PC9LZXlWYWx1ZT48WDUwOURhdGE+PFg1MDlTdWJqZWN0TmFtZT5PSUQuMC45LjIzNDIuMTkyMDAzMDAuMTAwLjEuMT1NU1Q6MTAxNjg2OTczOC0wMTIsIENOPVZOUFQgU09GVFdBUkUgLSBWTlBUIENBIC0gVEVTVCBTSUdOLCBMPUPhuqd1IEdp4bqleSwgUz1Iw4AgTuG7mEksIEM9Vk48L1g1MDlTdWJqZWN0TmFtZT48WDUwOUNlcnRpZmljYXRlPk1JSUdSVENDQkMyZ0F3SUJBZ0lRVkFFa2ozeVhSRUk3d0s3S1IvY0hzakFOQmdrcWhraUc5dzBCQVFVRkFEQnBNUXN3Q1FZRFZRUUdFd0pXVGpFVE1CRUdBMVVFQ2hNS1ZrNVFWQ0JIY205MWNERWVNQndHQTFVRUN4TVZWazVRVkMxRFFTQlVjblZ6ZENCT1pYUjNiM0pyTVNVd0l3WURWUVFERXh4V1RsQlVJRU5sY25ScFptbGpZWFJwYjI0Z1FYVjBhRzl5YVhSNU1CNFhEVEUzTURJeU56QTVNekl3TUZvWERURTVNREl5TnpJeE16SXdNRm93Z1lveEN6QUpCZ05WQkFZVEFsWk9NUkl3RUFZRFZRUUlEQWxJdzRBZ1R1RzdtRWt4RlRBVEJnTlZCQWNNREVQaHVxZDFJRWRwNGJxbGVURXNNQ29HQTFVRUF3d2pWazVRVkNCVFQwWlVWMEZTUlNBdElGWk9VRlFnUTBFZ0xTQlVSVk5VSUZOSlIwNHhJakFnQmdvSmtpYUprL0lzWkFFQkRCSk5VMVE2TVRBeE5qZzJPVGN6T0Mwd01USXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFDbmJ4eFJPZWhjYjFTanZuaW1QQjFrWWZ5WmZoVmxDUURLU2lxR3dDbStCZy9KUkFTUUVUcDMycXhrdmZvYS9XTVZuVzhxR2ljanA4c1RGV3RzY09iMzRONHA3TlVobXBDOHVLenJlRGVHdWJORzM1eitnRE5ybzVHcDRGVldZK0VKYzdEOGtPdkRFZmNJdG11VkhWY2JHYXlxV09MdjVVelNrTDhJaVNLRC9tMFc3ODhLNU54Tmo4MS8vSitZeFAzczJMTDAyY1UxZmx4Q29NUmptVklJT2lqTFNHbElLZHhoQ3k0dHhBa0I5ak8vUEQyaWc2TVdOZzVTK1p4NllNTFgvUVFUMTF0YVZaNjErZFUxdnl6T2lxd3NHc3NBTUhVS0ZKK2VYMmhBWE1aQlZyUkdJbjNFN0ErZ25ibU5CMVdLWVRYeTlNeGxabTJZWTFMYXY3NDVBZ01CQUFHamdnSEZNSUlCd1RCd0JnZ3JCZ0VGQlFjQkFRUmtNR0l3TWdZSUt3WUJCUVVITUFLR0ptaDBkSEE2THk5d2RXSXVkbTV3ZEMxallTNTJiaTlqWlhKMGN5OTJibkIwWTJFdVkyVnlNQ3dHQ0NzR0FRVUZCekFCaGlCb2RIUndPaTh2YjJOemNDNTJibkIwTFdOaExuWnVMM0psYzNCdmJtUmxjakFkQmdOVkhRNEVGZ1FVYkg0aHRGc09iTEQxazBOb0NYanlGVHZaQ1Fzd0RBWURWUjBUQVFIL0JBSXdBREFmQmdOVkhTTUVHREFXZ0JRR2FjRFYxUUtLRlkxR2ZlbDg0bWdLVmF4cXJ6Qm9CZ05WSFNBRVlUQmZNRjBHRGlzR0FRUUJnZTBEQVFFREFRRUNNRXN3SWdZSUt3WUJCUVVIQWdJd0ZoNFVBRThBU1FCRUFDMEFVQUJ5QUMwQU1nQXVBREF3SlFZSUt3WUJCUVVIQWdFV0dXaDBkSEE2THk5d2RXSXVkbTV3ZEMxallTNTJiaTl5Y0dFd01RWURWUjBmQkNvd0tEQW1vQ1NnSW9ZZ2FIUjBjRG92TDJOeWJDNTJibkIwTFdOaExuWnVMM1p1Y0hSallTNWpjbXd3RGdZRFZSMFBBUUgvQkFRREFnVHdNRFFHQTFVZEpRUXRNQ3NHQ0NzR0FRVUZCd01DQmdnckJnRUZCUWNEQkFZS0t3WUJCQUdDTndvRERBWUpLb1pJaHZjdkFRRUZNQndHQTFVZEVRUVZNQk9CRVRGamFIVmpkWFZBWjIxaGFXd3VZMjl0TUEwR0NTcUdTSWIzRFFFQkJRVUFBNElDQVFBeXFpSlB2dmtDTU1GM0JCaVBaM0duZWhud3ZodG1EUkpqWlJSTm1iNTIyTHc4eVNxSXBvNTdnWElTbkxlM3FXeUMwR0NXYVZzL1dKNlRKZzNmQjFHYUhwMnVKRzhoR1YwZzVNSm5nZ0FrV0lISGJraGt5WGxLZC94eHZGN2xDV3NsaDdPTG8vRHdKelBjQVFLZERtb3NETGtMdXRsamlyS2dQMTE4WG1UcEplOWNuaFRHV3htUjQzUlhvMXBLNk1aSlMvMzVBMGFFY1VGd2xreU9KcEZ1eitHcmpxMnFLMllzVHB2TkludzNMWkR3UmtrWWpobUpPRStmdWtxZnA4V0ZjQnRFR3FXRGFCYm1xZ1p2Y2l0OXMrUm9pM1dlT014VUtyaTBmU0FLRGN1eG5mNHJ4aWZRMEJiYXM5SFVtTm02NVZFc20rZjVCMHZkU202UzdYOFpvNTR1UXRSZy9IZDFhQ1B5MEFGZGZhSGkrNmFkcXIyWnEzcHRNSVMxMDdsQ2RxMjZLeU4zUk14WXZoNU5ac2c4OEpjOUlObEd4TDU4V0Q5RUI3TXpGa1dtbkdiOUpjMXVrQUVhUFpBOXZ3WldaVUF0cFdPSWRUeE5tVXZzWmRsVkE5dkRjL1RuSlJiVWswYUN3dnFWV01halBQb3p0OC9DdnpIcXdjT3Vna0Z1YzcrOE05UkZpK1J0WlhBK2tyVE5nblRLSlJIZDE2M2RXc3kzZnB5RlU5UEFjeWt5VEtxRmZpbEZqTmlHODdYME1acnA0bExSY1N1RmtnSFk2ci9pSWtMdkZNNkRJclRKU3hEUDNiWG85akZsOVFPYWJTTmZvUHhLbTQxdTVHcXBlSlhqbE5OQURJK0dOdFdRNmczWjJtdVlXcFM1NE5VZEpOcnlHUHlMeEE9PTwvWDUwOUNlcnRpZmljYXRlPjwvWDUwOURhdGE+PC9LZXlJbmZvPjxPYmplY3Q+PFNpZ25hdHVyZVByb3BlcnRpZXMgeG1sbnM9IiI+PFNpZ25hdHVyZVByb3BlcnR5IElkPSJTaWduaW5nVGltZSIgVGFyZ2V0PSJzaWduYXR1cmVQcm9wZXJ0aWVzIj48U2lnbmluZ1RpbWU+MjAyNS0wOC0xOVQwMzoyMzoxNlo8L1NpZ25pbmdUaW1lPjwvU2lnbmF0dXJlUHJvcGVydHk+PC9TaWduYXR1cmVQcm9wZXJ0aWVzPjwvT2JqZWN0PjwvU2lnbmF0dXJlPjwvTGljZW5zZT4=');
+    $(document).ready(function () {
+        // khởi tạo plugin
+        
+            renderDanhSachFile_YKienKhac(33847);
+            
+
+        if ('' == 'preview' && 'False' == 'False') {
+            PreparePlugin('PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PExpY2Vuc2U+PFBoYW5NZW0+Vk5QVC1DQSBQbHVnaW48L1BoYW5NZW0+PE5ndW9pQ2FwPlZOUFQgSVQ8L05ndW9pQ2FwPjxEb25WaUR1b2NDYXA+ZWNhYmluZXQudm4sZWNhYmluZXQudm5wdC52bjwvRG9uVmlEdW9jQ2FwPjxOZ2F5QmF0RGF1PjA4LzE5LzIwMjUgMDA6MDA6MDA8L05nYXlCYXREYXU+PE5nYXlLZXRUaHVjPjA4LzE5LzIwMjggMjM6NTk6NTk8L05nYXlLZXRUaHVjPjxNYWNPUz4xPC9NYWNPUz48U2lnbmF0dXJlIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjIj48U2lnbmVkSW5mbz48Q2Fub25pY2FsaXphdGlvbk1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLXhtbC1jMTRuLTIwMDEwMzE1IiAvPjxTaWduYXR1cmVNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjcnNhLXNoYTEiIC8+PFJlZmVyZW5jZSBVUkk9IiI+PFRyYW5zZm9ybXM+PFRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNlbnZlbG9wZWQtc2lnbmF0dXJlIiAvPjwvVHJhbnNmb3Jtcz48RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiIC8+PERpZ2VzdFZhbHVlPlByWWhDV2JkeTdLSGsvZVVvbm50WXArZmFYTT08L0RpZ2VzdFZhbHVlPjwvUmVmZXJlbmNlPjwvU2lnbmVkSW5mbz48U2lnbmF0dXJlVmFsdWU+QVp1QktQOUJPNXcwKzZpY01BT2t3T3RyaFEvK0puTTlwVngvMjFWVTRyRjhjalJmb2piaGZ5OGFEdUlneUtaUUZ6REoyU08wRjRxRnBZSDZ2dDNObDEvUU42NnBqTGFlWitEYTlrWGQybkQrM0xRTFJhcFIzY0lYREsrL1FVSEtwd2lsQVdkUEdacVlqa3EwcGp5NWozQmU4ZXF5cnVwb3NueW9NaVhEbUQ1NDJHemJkSzJYU0VxQWoveHpTYXNxU3NMMkhvdEI5Sml1eC8raUs2MzkrMERNNUN0KzAyalZGVUZnOUV3RWszcDNvUDJLTW1ETytwSkgzSloybE9nMDVqTjBYeXg3OG45ejhpZTh6aENYNnNQdGxXUUdzQnVoZHNVNUtUbDBnbXJXWUljMUhuMUlSTFhJODduMVQ3djQ5Q3kvMlNjNkdmbHlVVkU5OFVSZE5RPT08L1NpZ25hdHVyZVZhbHVlPjxLZXlJbmZvPjxLZXlWYWx1ZT48UlNBS2V5VmFsdWU+PE1vZHVsdXM+cDI4Y1VUbm9YRzlVbzc1NHBqd2RaR0g4bVg0VlpRa0F5a29xaHNBcHZnWVB5VVFFa0JFNmQ5cXNaTDM2R3YxakZaMXZLaG9uSTZmTEV4VnJiSERtOStEZUtlelZJWnFRdkxpczYzZzNocm16UnQrYy9vQXphNk9ScWVCVlZtUGhDWE93L0pEcnd4SDNDTFpybFIxWEd4bXNxbGppNytWTTBwQy9DSWtpZy81dEZ1L1BDdVRjVFkvTmYveWZtTVQ5N05peTlObkZOWDVjUXFERVk1bFNDRG9veTBocFNDbmNZUXN1TGNRSkFmWXp2enc5b29PakZqWU9Vdm1jZW1EQzEvMEVFOWRiV2xXZXRmblZOYjhzem9xc0xCckxBREIxQ2hTZm5sOW9RRnpHUVZhMFJpSjl4T3dQb0oyNWpRZFZpbUUxOHZUTVpXWnRtR05TMnIrK09RPT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+PC9LZXlWYWx1ZT48WDUwOURhdGE+PFg1MDlTdWJqZWN0TmFtZT5PSUQuMC45LjIzNDIuMTkyMDAzMDAuMTAwLjEuMT1NU1Q6MTAxNjg2OTczOC0wMTIsIENOPVZOUFQgU09GVFdBUkUgLSBWTlBUIENBIC0gVEVTVCBTSUdOLCBMPUPhuqd1IEdp4bqleSwgUz1Iw4AgTuG7mEksIEM9Vk48L1g1MDlTdWJqZWN0TmFtZT48WDUwOUNlcnRpZmljYXRlPk1JSUdSVENDQkMyZ0F3SUJBZ0lRVkFFa2ozeVhSRUk3d0s3S1IvY0hzakFOQmdrcWhraUc5dzBCQVFVRkFEQnBNUXN3Q1FZRFZRUUdFd0pXVGpFVE1CRUdBMVVFQ2hNS1ZrNVFWQ0JIY205MWNERWVNQndHQTFVRUN4TVZWazVRVkMxRFFTQlVjblZ6ZENCT1pYUjNiM0pyTVNVd0l3WURWUVFERXh4V1RsQlVJRU5sY25ScFptbGpZWFJwYjI0Z1FYVjBhRzl5YVhSNU1CNFhEVEUzTURJeU56QTVNekl3TUZvWERURTVNREl5TnpJeE16SXdNRm93Z1lveEN6QUpCZ05WQkFZVEFsWk9NUkl3RUFZRFZRUUlEQWxJdzRBZ1R1RzdtRWt4RlRBVEJnTlZCQWNNREVQaHVxZDFJRWRwNGJxbGVURXNNQ29HQTFVRUF3d2pWazVRVkNCVFQwWlVWMEZTUlNBdElGWk9VRlFnUTBFZ0xTQlVSVk5VSUZOSlIwNHhJakFnQmdvSmtpYUprL0lzWkFFQkRCSk5VMVE2TVRBeE5qZzJPVGN6T0Mwd01USXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFDbmJ4eFJPZWhjYjFTanZuaW1QQjFrWWZ5WmZoVmxDUURLU2lxR3dDbStCZy9KUkFTUUVUcDMycXhrdmZvYS9XTVZuVzhxR2ljanA4c1RGV3RzY09iMzRONHA3TlVobXBDOHVLenJlRGVHdWJORzM1eitnRE5ybzVHcDRGVldZK0VKYzdEOGtPdkRFZmNJdG11VkhWY2JHYXlxV09MdjVVelNrTDhJaVNLRC9tMFc3ODhLNU54Tmo4MS8vSitZeFAzczJMTDAyY1UxZmx4Q29NUmptVklJT2lqTFNHbElLZHhoQ3k0dHhBa0I5ak8vUEQyaWc2TVdOZzVTK1p4NllNTFgvUVFUMTF0YVZaNjErZFUxdnl6T2lxd3NHc3NBTUhVS0ZKK2VYMmhBWE1aQlZyUkdJbjNFN0ErZ25ibU5CMVdLWVRYeTlNeGxabTJZWTFMYXY3NDVBZ01CQUFHamdnSEZNSUlCd1RCd0JnZ3JCZ0VGQlFjQkFRUmtNR0l3TWdZSUt3WUJCUVVITUFLR0ptaDBkSEE2THk5d2RXSXVkbTV3ZEMxallTNTJiaTlqWlhKMGN5OTJibkIwWTJFdVkyVnlNQ3dHQ0NzR0FRVUZCekFCaGlCb2RIUndPaTh2YjJOemNDNTJibkIwTFdOaExuWnVMM0psYzNCdmJtUmxjakFkQmdOVkhRNEVGZ1FVYkg0aHRGc09iTEQxazBOb0NYanlGVHZaQ1Fzd0RBWURWUjBUQVFIL0JBSXdBREFmQmdOVkhTTUVHREFXZ0JRR2FjRFYxUUtLRlkxR2ZlbDg0bWdLVmF4cXJ6Qm9CZ05WSFNBRVlUQmZNRjBHRGlzR0FRUUJnZTBEQVFFREFRRUNNRXN3SWdZSUt3WUJCUVVIQWdJd0ZoNFVBRThBU1FCRUFDMEFVQUJ5QUMwQU1nQXVBREF3SlFZSUt3WUJCUVVIQWdFV0dXaDBkSEE2THk5d2RXSXVkbTV3ZEMxallTNTJiaTl5Y0dFd01RWURWUjBmQkNvd0tEQW1vQ1NnSW9ZZ2FIUjBjRG92TDJOeWJDNTJibkIwTFdOaExuWnVMM1p1Y0hSallTNWpjbXd3RGdZRFZSMFBBUUgvQkFRREFnVHdNRFFHQTFVZEpRUXRNQ3NHQ0NzR0FRVUZCd01DQmdnckJnRUZCUWNEQkFZS0t3WUJCQUdDTndvRERBWUpLb1pJaHZjdkFRRUZNQndHQTFVZEVRUVZNQk9CRVRGamFIVmpkWFZBWjIxaGFXd3VZMjl0TUEwR0NTcUdTSWIzRFFFQkJRVUFBNElDQVFBeXFpSlB2dmtDTU1GM0JCaVBaM0duZWhud3ZodG1EUkpqWlJSTm1iNTIyTHc4eVNxSXBvNTdnWElTbkxlM3FXeUMwR0NXYVZzL1dKNlRKZzNmQjFHYUhwMnVKRzhoR1YwZzVNSm5nZ0FrV0lISGJraGt5WGxLZC94eHZGN2xDV3NsaDdPTG8vRHdKelBjQVFLZERtb3NETGtMdXRsamlyS2dQMTE4WG1UcEplOWNuaFRHV3htUjQzUlhvMXBLNk1aSlMvMzVBMGFFY1VGd2xreU9KcEZ1eitHcmpxMnFLMllzVHB2TkludzNMWkR3UmtrWWpobUpPRStmdWtxZnA4V0ZjQnRFR3FXRGFCYm1xZ1p2Y2l0OXMrUm9pM1dlT014VUtyaTBmU0FLRGN1eG5mNHJ4aWZRMEJiYXM5SFVtTm02NVZFc20rZjVCMHZkU202UzdYOFpvNTR1UXRSZy9IZDFhQ1B5MEFGZGZhSGkrNmFkcXIyWnEzcHRNSVMxMDdsQ2RxMjZLeU4zUk14WXZoNU5ac2c4OEpjOUlObEd4TDU4V0Q5RUI3TXpGa1dtbkdiOUpjMXVrQUVhUFpBOXZ3WldaVUF0cFdPSWRUeE5tVXZzWmRsVkE5dkRjL1RuSlJiVWswYUN3dnFWV01halBQb3p0OC9DdnpIcXdjT3Vna0Z1YzcrOE05UkZpK1J0WlhBK2tyVE5nblRLSlJIZDE2M2RXc3kzZnB5RlU5UEFjeWt5VEtxRmZpbEZqTmlHODdYME1acnA0bExSY1N1RmtnSFk2ci9pSWtMdkZNNkRJclRKU3hEUDNiWG85akZsOVFPYWJTTmZvUHhLbTQxdTVHcXBlSlhqbE5OQURJK0dOdFdRNmczWjJtdVlXcFM1NE5VZEpOcnlHUHlMeEE9PTwvWDUwOUNlcnRpZmljYXRlPjwvWDUwOURhdGE+PC9LZXlJbmZvPjxPYmplY3Q+PFNpZ25hdHVyZVByb3BlcnRpZXMgeG1sbnM9IiI+PFNpZ25hdHVyZVByb3BlcnR5IElkPSJTaWduaW5nVGltZSIgVGFyZ2V0PSJzaWduYXR1cmVQcm9wZXJ0aWVzIj48U2lnbmluZ1RpbWU+MjAyNS0wOC0xOVQwMzoyMzoxNlo8L1NpZ25pbmdUaW1lPjwvU2lnbmF0dXJlUHJvcGVydHk+PC9TaWduYXR1cmVQcm9wZXJ0aWVzPjwvT2JqZWN0PjwvU2lnbmF0dXJlPjwvTGljZW5zZT4=');
+        }
+
+    });
+
+   
+
+    function xacNhanKy() {
+        var anhChuKy = $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfAnhChuKy").val();
+        var soHinhThucKy = 2  ;
+            
+        if (soHinhThucKy == 1) {
+            if (confirm("Bạn có chắc chắn hành động này?")) {
+                $('#chonchedoky-popup input[type=hidden]').val('PKI_TEST');
+                if ('PKI_TEST' == 'Token') {
+                    $("#signLoading").html("<center><img height='50' width='50' src='/style/custom/images/loading.gif' ></center>");
+                    $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfBase64DataOutput").val("");
+                    sign('', 'pdf');
+                }
+                else {
+                    if (anhChuKy == "true") {
+                        $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_btnKy").click();
+                    }
+                    else {
+                        alert("Tài khoản chưa có ảnh chữ ký!");
+                        return false;
+                    } 
+                }
+            }
+            else return false;
+        }
+        else if (soHinhThucKy > 1) {
+            $("#chonchedoky-popup").modal("show");
+        }
+        else {
+            alert("Tài khoản chưa có hình thúc ký số");
+            return false;
+        }
+    }
+
+    function Ky() {
+        if (confirm("Bạn có chắc chắn hành động này?")) {
+            var loaiKySo = $('#chonchedoky-popup input[type=radio]:checked').val();
+            $('#chonchedoky-popup input[type=hidden]').val(loaiKySo);
+            if (loaiKySo == 'Token') {
+                $("#signLoading").html("<center><img height='50' width='50' src='/style/custom/images/loading.gif' ></center>");
+                $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfBase64DataOutput").val("");
+                sign('', 'pdf');
+            }
+            else {
+                var anhChuKy = $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfAnhChuKy").val();
+                if (anhChuKy == "true") {
+                    $("#signLoading").html("<center><img height='50' width='50' src='/style/custom/images/loading.gif' ></center>");
+                    $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_btnKy").click();
+                }
+                else {
+                    alert("Tài khoản chưa có ảnh chữ ký!");
+                    hiddenDialog("chonchedoky-popup");
+                    return false;
+                } 
+            }
+        }
+        else return false;
+    }
+
+    function processKySoToken(data) {
+        $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_hdfBase64DataOutput").val(data);
+        $("#ctl00_ctl00_MainContentPlaceHolder_webpartZone1_TESTSuaLayYKien_btnKy").click();
+    }
+
+    function processLoiKySoToken(err) {
+        alert(err);
+        location.href = location.href.replace('#', '');
+    }
+</script>
+
+
+
+        
+
+<style>
+    #divInPopup_DangKyPhatBieu:hover {
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="popup-box nav-show1" id="popup_DangKyPhatBieu" style="z-index: 9999; display: none">
+    <div class="nav-show icon fa fa-hand-o-up">
+    </div>
+
+    <div class="head">Đăng ký phát biểu </div>
+    <div class="list-enounce" id="divInPopup_DangKyPhatBieu">
+        
+        <div class="item" id="div_Note_ChuaCoDangKy">
+            <p class="name">Chưa có đăng ký phát biểu!</p>
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+<script>
+    function openModal(id) {
+        $('#' + id).modal({
+            show: 'true'
+        });
+    }
+    $(".nav-show1").click(function () {
+        //$(this).parent().toggleClass("show");
+        $(this).toggleClass("show");
+        // $(".nav-show-hotro").toggleClass("hide");
+    });
+    //ECABINET-4135 - nntruong - Ẩn popup Đăng ký phát biểu
+    
+</script>
+
+    
+
+<style>
+    .popup-box-hotro {
+    position: fixed;
+    top: 45%;
+    left: -220px;
+    transition: all 0.3s ease;
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 220px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+}
+    .popup-box-hotro.show {
+        left: 0px;
+        transition: all 0.3s ease;
+    }
+    .popup-box-hotro .nav-show {
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        top: 0px;
+        right: 0px;
+        line-height: 38px;
+        position: absolute;
+        background: #b80002;
+        color: #fff;
+        right: -38px;
+        font-size: 18px;
+        cursor: pointer;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    .popup-box-hotro .head {
+        background: #b80002;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+    }
+    .popup-box-hotro .list-enounce-hotro .item {
+        padding: 8px 10px;
+    }
+    .popup-box-hotro .list-enounce-hotro .item .name {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .popup-box-hotro .list-enounce-hotro .item:nth-child(2n+2) {
+        background: #e4f1fb;
+    }
+</style>
+
+<div class="popup-box-hotro nav-show-hotro" id="popup_YeuCauHoTro" style="z-index:9999;display:none">
+        <div class="nav-show icon fa fa fa-question">
+        </div>
+
+    <div class="head" >Yêu cầu hỗ trợ </div>
+    <div class="list-enounce-hotro" id="divInPopup_YeuCauHoTro">
+        
+                    <div class="item" id="div_YeuCauHoTro_NhanVien_4693"
+                            onclick="openDialogSupport(107471,4693,107471)"
+                            >
+                        <p class="name">Đồng chí : <strong>quantrihieunang</strong> đã yêu cầu hỗ trợ:test 4 22 1</p>
+                        <div class="time">22/04/2024 
+                            <span class="main">
+                                08:57 
+                            </span>
+                        </div>
+                    </div>
+            
+    </div>  
+</div>
+
+
+<script>
+    function openModal(id){
+        $('#'+id).modal({
+            show: 'true'
+        }); 
+    }
+
+    $(".nav-show-hotro").click(function(){
+        //$(this).parent().toggleClass("show");
+        $(this).toggleClass("show");
+       // $(".nav-show1").toggleClass("hide");
+    });
+</script>
+
+
+
+        <script type="text/javascript" src="/style/thietke/frontend/js/custom.js?ver=3"></script>
+        <script type="text/javascript" src="/style/thietke/frontend/assets/select2/js/select2.min.js"></script>
+        <script type="text/javascript" src="/style/thietke/frontend/assets/slimscroll/jquery.slimscroll.min.js"></script>
+        
+
+
+<style>
+    .main-wrapper {
+        height: auto !important;
+        min-height: 500px;
+    }
+
+    .page-footer.cus {
+        border-top: 3px solid #1b7dcc;
+        background: #fff;
+        height: 110px;
+        padding: 15px;
+        padding-left: 40px;
+        padding-bottom: 20px;
+        width: 100%;
+    }
+
+        .page-footer.cus .text p {
+            line-height: 20px;
+            margin: 0px;
+        }
+
+    .logo-header {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        max-width: 69px;
+        max-height: 71px;
+        margin-left: 0.8%;
+    }
+</style>
+<div id="ctl00_ctl00_footer_divFooter" class="page-footer cus">
+    
+        <div class="pull-left img">
+        <img class="logo-header" src="/style/custom/images/logo.jpg" alt="">
+        </div>
+        <div class="pull-left text" style="padding-left: 110px;">
+            <p class="" style="text-transform: uppercase;">HỆ THỐNG PHÒNG HỌP KHÔNG GIẤY TEST-ECABINET</p>
+            <p>Địa chỉ: </p>
+            <p>Điện thoại: </p>
+            <p>Email: </p>
+        </div>
+    
+    
+        <div class="pull-left text" style="float: right;">
+            <p>Phụ Trách: </p>
+            <p>Điện thoại: </p>
+            <p>WebSite: </p>
+        </div>
+    
+</div>
+
+         
+        
+    </form>
+    
+</body>
+
+</html>
+
